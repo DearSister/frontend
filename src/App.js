@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "./components/Header";
+import Layout from "../src/components/layout/index";
 export default function App() {
   return (
     <div>
-      <Header />
+      <Layout />
     </div>
   );
 }

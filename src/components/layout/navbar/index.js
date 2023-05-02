@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-
-function Navbar() {
+import WebLogo from "../../../assests/WebLogo.png";
+export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -20,7 +20,12 @@ function Navbar() {
                   href="/"
                   className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
                 >
-                  <svg
+                  <img
+                    src={WebLogo}
+                    style={{ width: "30%", height: "auto" }}
+                    alt=""
+                  ></img>
+                  {/* <svg
                     className="h-6 w-6 mr-1 text-blue-400"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -32,36 +37,42 @@ function Navbar() {
                       strokeLinejoin="round"
                       strokeWidth="2"
                       d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
-                  </svg>
-                  <span className="font-bold">Better Dev</span>
+                    /> */}
+                  {/* </svg> */}
+                  {/* <span className="font-bold">Dear Sister</span> */}
                 </a>
               </div>
 
               {/* primary nav */}
               <div className="hidden md:flex items-center space-x-1">
                 <a
-                  href="/features"
-                  className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  href="/home"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
                 >
-                  Features
+                  Home
                 </a>
                 <a
-                  href="#"
-                  className="py-5 px-3 text-gray-700 hover:text-gray-900"
+                  href="/videos"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
                 >
-                  Pricing
+                  Videos
+                </a>
+                <a
+                  href="/about_us"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
+                  About Us
                 </a>
               </div>
             </div>
 
             {/* secondary nav */}
             <div className="hidden md:flex items-center space-x-1">
-              <a href="" className="py-5 px-3">
+              <a href="/login" className="py-5 px-3">
                 Login
               </a>
               <a
-                href=""
+                href="/signup"
                 className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
               >
                 Signup
@@ -91,13 +102,40 @@ function Navbar() {
         </div>
 
         {/* mobile menu */}
-        <div className={`mobile-menu ${isMenuOpen ? "" : "hidden"} md:hidden`}>
-          <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
-            Features
+        <div
+          className={`mobile-menu text-center bg-gray-300 ${
+            isMenuOpen ? "" : "hidden"
+          } md:hidden`}
+        >
+          <a
+            href="/home"
+            className="block py-2 px-4 font-bold  text-sm hover:bg-gray-200"
+          >
+            Home
           </a>
-          <a href="#" className="block py-2 px-4 text-sm hover:bg-gray-200">
-            Pricing
+          <a
+            href="/videos"
+            className="block py-2 px-4 font-bold  text-sm hover:bg-gray-200"
+          >
+            Videos
           </a>
+          <a
+            href="/about_us"
+            className="block py-2 px-4 font-bold  text-sm hover:bg-gray-200"
+          >
+            About Us
+          </a>
+          {/* <div className="hidden md:flex items-center space-x-1"> */}
+          <a href="/login" className="py-5 px-3 ">
+            Login
+          </a>
+          <a
+            href="/signup"
+            className="py-0 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
+          >
+            Signup
+          </a>
+          {/* </div> */}
         </div>
       </nav>
 
@@ -109,4 +147,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+// export default Navbar;
