@@ -1,5 +1,7 @@
 // import Grid from "@mui/material/Grid";
 import { React, useState } from "react";
+// import { useTheme } from "@mui/material/styles";
+// import { Hidden } from "@mui/material";
 import { Grid, Typography, makeStyles, Link } from "@material-ui/core";
 // import { alpha } from "@mui/material/styles";
 import YouTubeIcon from "@material-ui/icons/YouTube";
@@ -17,15 +19,24 @@ const UseStyles = makeStyles((theme) => ({
   },
   img: {
     [theme.breakpoints.up("xs")]: {
+      // fontSize: "2rem",x
+      marginTop: "-15%",
+      maxWidth: "0%",
+      maxHeight: "0%",
+    },
+    [theme.breakpoints.up("sm")]: {
       // fontSize: "2rem",
       maxWidth: "100%",
       maxHeight: "100%",
     },
-    [theme.breakpoints.up("sm")]: {
-      // fontSize: "2rem",
-      // maxWidth: "100%",
-      // maxHeight: "100%",
-    },
+    // [theme.breakpoints.up("md")]: {
+    //   maxWidth: "100%",
+    //   maxHeight: "100%",
+    // },
+    // [theme.breakpoints.up("lg")]: {
+    //   maxWidth: "100%",
+    //   maxHeight: "100%",
+    // },
   },
   root: {
     [theme.breakpoints.up("xs")]: {
@@ -69,9 +80,10 @@ export default function index() {
     <>
       <Grid
         style={{
-          backgroundColor: "lightblue",
+          backgroundColor: "#01011F",
           height: "80vh",
           align: "center",
+          // display: theme.breakpoints.up("xs") ? "none" : "block",
         }}
         container
         // maxWidth="xs"
@@ -79,7 +91,7 @@ export default function index() {
         // spacing={4}
         className={classes.container}
       >
-        <Grid sm={6} item xs={12}>
+        <Grid sm={8} item xs={12}>
           <div
             style={
               {
@@ -93,8 +105,8 @@ export default function index() {
               variant="h1"
               align="center"
               justify="center"
-              // fontFamily="Arial"
-              // fontWeight="bold"
+              color="primary"
+              style={{ color: "#fff" }}
             >
               English proficiency,
             </Typography>
@@ -103,10 +115,11 @@ export default function index() {
               variant="h1"
               align="center"
               justify="center"
-              // fontFamily="Arial"
-              // fontWeight="bold"
+              color="primary"
+              style={{ color: "#fff" }}
             >
-              Confident English communication
+              <span style={{ color: "red" }}> Confident</span> English
+              communication
             </Typography>
             <Typography
               className={classes.para}
@@ -114,10 +127,15 @@ export default function index() {
               justify="center"
               variant="body1"
               fontSize="1rem"
+              style={{ color: "#fff" }}
               // component="p"
             >
-              A good way to learn English is to read and listen to English
-              content regularly, and to practice speaking and writing in English
+              A good way to learn English is to read and listen to{" "}
+              <span style={{ color: "red" }}> English content </span>regularly,
+              and to practice{" "}
+              <span style={{ color: "red" }}>
+                speaking and writing in English
+              </span>
               whenever possible.
             </Typography>
             <div
@@ -127,8 +145,8 @@ export default function index() {
               <div
                 className="youtube_icon"
                 style={{
-                  opacity: 0.7, // set opacity to 70%
-                  backgroundColor: "#8196F3", // set background color to yellow
+                  opacity: 0.9, // set opacity to 70%
+                  backgroundColor: "#F3F7F5", // set background color to yellow
                   boxShadow: "0px 0px 10px #0A34F3", // add a yellow shadow effect
                   borderRadius: "25px", // add rounded corners
                   padding: "10px", // add padding
@@ -157,16 +175,43 @@ export default function index() {
                 <Link
                   href="https://www.youtube.com/@DearSister"
                   target="_blank"
-                  rel="noopener"
+                  // rel="noopener"
                   color="secondary"
                 >
-                  Youtube-Link
+                  Youtube
                 </Link>
               </div>
               <div
                 style={{
-                  opacity: 0.7, // set opacity to 70%
-                  backgroundColor: "#8196F3", // set background color to yellow
+                  opacity: 0.9, // set opacity to 70%
+                  backgroundColor: "#F3F7F5", // set background color to yellow
+                  boxShadow: "0px 0px 10px #fff", // add a yellow shadow effect
+                  borderRadius: "25px", // add rounded corners
+                  padding: "10px", // add padding
+                  margin: "10px",
+                  transition: "all 0.2s ease-in-out", // add transition effect
+                  cursor: "pointer", // add cursor on hover
+                }}
+              >
+                <TelegramIcon
+                  align="center"
+                  justify="center"
+                  color="primary"
+                  fontSize="large"
+                />
+                <Link
+                  href="https://www.youtube.com/@DearSister"
+                  target="_blank"
+                  rel="noopener"
+                  color="primary"
+                >
+                  Telegram
+                </Link>
+              </div>
+              <div
+                style={{
+                  opacity: 0.9, // set opacity to 70%
+                  backgroundColor: "#F3F7F5", // set background color to yellow
                   boxShadow: "0px 0px 10px #0A34F3", // add a yellow shadow effect
                   borderRadius: "25px", // add rounded corners
                   padding: "10px", // add padding
@@ -187,34 +232,7 @@ export default function index() {
                   rel="noopener"
                   color="secondary"
                 >
-                  Instagram-Link
-                </Link>
-              </div>
-              <div
-                style={{
-                  opacity: 0.7, // set opacity to 70%
-                  backgroundColor: "#8196F3", // set background color to yellow
-                  boxShadow: "0px 0px 10px #0A34F3", // add a yellow shadow effect
-                  borderRadius: "25px", // add rounded corners
-                  padding: "10px", // add padding
-                  margin: "10px",
-                  transition: "all 0.2s ease-in-out", // add transition effect
-                  cursor: "pointer", // add cursor on hover
-                }}
-              >
-                <TelegramIcon
-                  align="center"
-                  justify="center"
-                  color="primary"
-                  fontSize="large"
-                />
-                <Link
-                  href="https://www.youtube.com/@DearSister"
-                  target="_blank"
-                  rel="noopener"
-                  color="primary"
-                >
-                  Telegram-Link
+                  Instagram
                 </Link>
               </div>
             </div>
@@ -223,27 +241,20 @@ export default function index() {
         <Grid
           item
           style={{
-            backgroundColor: "yellow",
-            // height: "80vh",
             align: "center",
           }}
-          sm={6}
+          sm={4}
           xs={12}
           justifyContent="center"
         >
           <div
             style={{
-              // display: "flex",
+              display: "flex",
               alignItems: "center",
               justifyContent: "center",
             }}
           >
-            <img
-              // style={{ maxWidth: "100%" }}
-              src={LadyPhoto}
-              className={classes.img}
-              // style={{ maxWidth: "100%", width: "100%" }}
-            />
+            <img src={LadyPhoto} className={classes.img} />
           </div>
         </Grid>
       </Grid>
