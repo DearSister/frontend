@@ -1,15 +1,12 @@
-// import Grid from "@mui/material/Grid";
 import { React, useState } from "react";
-// import { useTheme } from "@mui/material/styles";
-// import { Hidden } from "@mui/material";
 import { Grid, Typography, makeStyles, Link } from "@material-ui/core";
-// import { alpha } from "@mui/material/styles";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import TelegramIcon from "@material-ui/icons/Telegram";
 import InstagramIcon from "@material-ui/icons/Instagram";
-
 import LadyPhoto from "../../../assests/Home/LadyPhoto11.png";
+
 const UseStyles = makeStyles((theme) => ({
+  // <--------------Main Grid Container-------------------->
   container: {
     display: "flex",
     alignItems: "center",
@@ -17,33 +14,24 @@ const UseStyles = makeStyles((theme) => ({
     maxWidth: "100%",
     maxHeight: "100%",
   },
+  // <-----------------------Image Grid2 CSS ------------------>
   img: {
     [theme.breakpoints.up("xs")]: {
-      // fontSize: "2rem",x
       marginTop: "-15%",
       maxWidth: "0%",
       maxHeight: "0%",
     },
     [theme.breakpoints.up("sm")]: {
-      // fontSize: "2rem",
       maxWidth: "100%",
       maxHeight: "100%",
     },
-    // [theme.breakpoints.up("md")]: {
-    //   maxWidth: "100%",
-    //   maxHeight: "100%",
-    // },
-    // [theme.breakpoints.up("lg")]: {
-    //   maxWidth: "100%",
-    //   maxHeight: "100%",
-    // },
   },
+  // <---------------------Apply on Typography---------------->
   root: {
     [theme.breakpoints.up("xs")]: {
       marginTop: "15px",
       fontSize: "2.0rem",
       fontWeight: "800",
-      // margin-top:"20px"
     },
     [theme.breakpoints.up("sm")]: {
       fontSize: "1.5rem",
@@ -56,6 +44,7 @@ const UseStyles = makeStyles((theme) => ({
       fontSize: "3rem",
     },
   },
+  // <----------------Paragraph---------------------->
   para: {
     [theme.breakpoints.up("xs")]: {
       fontSize: "1rem",
@@ -76,30 +65,18 @@ const UseStyles = makeStyles((theme) => ({
 export default function index() {
   const classes = UseStyles();
   return (
-    // <div className="py-64 w-[80%] text-center">
     <>
       <Grid
         style={{
           backgroundColor: "#01011F",
           height: "80vh",
           align: "center",
-          // display: theme.breakpoints.up("xs") ? "none" : "block",
         }}
         container
-        // maxWidth="xs"
-        // maxHeight="md"
-        // spacing={4}
         className={classes.container}
       >
         <Grid sm={8} item xs={12}>
-          <div
-            style={
-              {
-                // height: "100%",
-                // backgroundColor: "orange",
-              }
-            }
-          >
+          <div>
             <Typography
               className={classes.root}
               variant="h1"
@@ -128,7 +105,6 @@ export default function index() {
               variant="body1"
               fontSize="1rem"
               style={{ color: "#fff" }}
-              // component="p"
             >
               A good way to learn English is to read and listen to{" "}
               <span style={{ color: "red" }}> English content </span>regularly,
@@ -154,17 +130,6 @@ export default function index() {
                   transition: "all 0.2s ease-in-out", // add transition effect
                   cursor: "pointer", // add cursor on hover
                 }}
-                // onMouseEnter={(e) => {
-                //   e.target.style.backgroundColor = "#ff0000"; // change background color on hover
-                //   e.target.style.boxShadow = "0px 0px 10px #ff0000"; // add a red shadow effect on hover
-                //   e.target.style.color = "#ffffff"; // change text color on hover
-                // }}
-                // onMouseLeave={(e) => {
-                //   e.target.style.backgroundColor = "#ffff00"; // revert background color on mouse leave
-                //   e.target.style.boxShadow = "0px 0px 10px #ffff00"; // revert shadow effect on mouse leave
-                //   e.target.style.color = "#000000"; // revert text color on mouse leave
-                // }}
-                // style="opacity: 1; background-color: blueviolet;"
               >
                 <YouTubeIcon
                   align="center"
@@ -175,7 +140,6 @@ export default function index() {
                 <Link
                   href="https://www.youtube.com/@DearSister"
                   target="_blank"
-                  // rel="noopener"
                   color="secondary"
                 >
                   Youtube
@@ -259,6 +223,5 @@ export default function index() {
         </Grid>
       </Grid>
     </>
-    // </div>
   );
 }
