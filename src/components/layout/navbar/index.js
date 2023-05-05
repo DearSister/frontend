@@ -10,7 +10,7 @@ export default function Navbar() {
   return (
     <>
       {/* navbar goes here */}
-      <nav className="bg-gray-100">
+      <nav className="bg-gray-100 " >
         <div className="max-w-6xl mx-auto px-4">
           <div className="flex justify-between">
             <div className="flex space-x-4">
@@ -46,7 +46,7 @@ export default function Navbar() {
               {/* primary nav */}
               <div className="hidden md:flex items-center space-x-1">
                 <a
-                  href="/home"
+                  href="/#home"
                   className="py-5 px-3 font-bold hover:text-gray-700"
                 >
                   Home
@@ -108,7 +108,7 @@ export default function Navbar() {
           } md:hidden`}
         >
           <a
-            href="/home"
+            href="/#home"
             className="block py-2 px-4 font-bold  text-sm hover:bg-gray-200"
           >
             Home
@@ -140,9 +140,6 @@ export default function Navbar() {
       </nav>
 
       {/* content goes here */}
-      <div className="py-32 text-center">
-        <h2 className="font-extrabold text-4xl">Navbars in Tailwind!</h2>
-      </div>
     </>
   );
 }
