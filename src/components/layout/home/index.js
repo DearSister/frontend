@@ -65,7 +65,7 @@ const UseStyles = makeStyles((theme) => ({
 export default function index() {
   const classes = UseStyles();
   return (
-    <>
+    <div style={{ paddingTop: "64px" }}>
       <Grid
         style={{
           backgroundColor: "#01011F",
@@ -222,6 +222,6 @@ export default function index() {
           </div>
         </Grid>
       </Grid>
-    </>
+    </div>
   );
 }
