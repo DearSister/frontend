@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Typography, makeStyles, AppBar } from "@material-ui/core";
 
-import WebLogo from "../../../assests/WebLogo.png";
+import WebLogo from "../../../assests/Navbar/WebLogo1.png";
 
 const UseStyles = makeStyles({
   underline: {
@@ -40,20 +40,21 @@ export default function Navbar() {
 
         <nav
           className="bg-gray-100 sticky-nav"
-          style={{ backgroundColor: "#04042C" }}
+          style={{ backgroundColor: "#04042C", width: "100%" }}
         >
           <div className="max-w-6xl mx-auto px-4">
             <div className="flex justify-between">
-              <div className="flex space-x-4">
+              <div className="flex space-x-6">
                 {/* logo */}
                 <div>
-                  <a
-                    href="/"
-                    className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900"
-                  >
+                  <a href="/" className="flex items-center   text-gray-700 ">
                     <img
                       src={WebLogo}
-                      style={{ width: "30%", height: "auto" }}
+                      style={{
+                        width: "100%",
+                        // marginBottom: "-5vh",
+                        // height: "60%",
+                      }}
                       alt=""
                     ></img>
                     {/* <svg
@@ -73,32 +74,29 @@ export default function Navbar() {
                     {/* <span className="font-bold">Dear Sister</span> */}
                   </a>
                 </div>
-
-                {/* primary nav */}
-                <div className="hidden md:flex items-center space-x-1">
-                  <a
-                    href="/#home"
-                    className="py-5 px-3 font-bold hover:text-gray-700"
-                  >
-                    <Typography className={classes.underline}>Home</Typography>
-                  </a>
-                  <a
-                    href="/videos"
-                    className="py-5 px-3 font-bold hover:text-gray-700"
-                  >
-                    <Typography className={classes.underline}>
-                      Videos
-                    </Typography>
-                  </a>
-                  <a
-                    href="/about_us"
-                    className="py-5 px-3 font-bold hover:text-gray-700"
-                  >
-                    <Typography className={classes.underline}>
-                      About Us
-                    </Typography>
-                  </a>
-                </div>
+              </div>
+              {/* primary nav */}
+              <div className="hidden md:flex items-center space-x-1">
+                <a
+                  href="/#home"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
+                  <Typography className={classes.underline}>Home</Typography>
+                </a>
+                <a
+                  href="/videos"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
+                  <Typography className={classes.underline}>Videos</Typography>
+                </a>
+                <a
+                  href="/about_us"
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
+                  <Typography className={classes.underline}>
+                    About Us
+                  </Typography>
+                </a>
               </div>
 
               {/* secondary nav */}

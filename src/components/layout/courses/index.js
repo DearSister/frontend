@@ -143,10 +143,7 @@ const UseStyles = makeStyles((theme) => ({
   },
   explorecourse: {
     color: "#fff",
-
     fontWeight: "1000",
-
-    width: "500px",
     [theme.breakpoints.down("sm")]: {
       // fontSize: "2rem",
       fontSize: "1rem",
@@ -192,7 +189,6 @@ export default function index() {
         container
         className={classes.container}
       >
-        {" "}
         <Grid
           sm={6}
           item
@@ -246,13 +242,7 @@ export default function index() {
                 <Typography className={classes.coursebelow}>
                   $0/month
                 </Typography>
-                <div style={{}} className={classes.explorecourse}>
-                  {/* <InstagramIcon
-                    align="center"
-                    justify="center"
-                    color="secondary"
-                    fontSize="large"
-                  /> */}
+                <div className={classes.explorecourse}>
                   <Link
                     href="https://www.youtube.com/@DearSister"
                     target="_blank"
@@ -262,7 +252,7 @@ export default function index() {
                   >
                     {`   Explore Course  `}
                     <VideoLibraryIcon />
-                  </Link>
+                  </Link>{" "}
                 </div>
               </div>
             </div>
