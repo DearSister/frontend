@@ -10,16 +10,12 @@ const UseStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     height: "auto",
-    // maxWidth: "100%",
-    // maxHeight: "100%",
   },
 
   // <----------------------Apply Size on hr ------------------>
   divisize: {
-    backgroundColor: "#FC6736",
-    // height: "7px",
+    backgroundColor: "#F50834",
     marginBottom: "20px",
-
     borderRadius: "10vw",
     [theme.breakpoints.down("xs")]: {
       width: "30%",
@@ -33,9 +29,6 @@ const UseStyles = makeStyles((theme) => ({
   // <---------------------Apply on Typography---------------->
   root: {
     color: "#fff",
-    // borderBottom: "20px solid red",
-    // borderWidth: "0 0 3px 0",
-
     [theme.breakpoints.down("xs")]: {
       marginTop: "5vh",
       marginLeft: "4vw",
@@ -45,12 +38,10 @@ const UseStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       marginTop: "10vh",
       fontSize: "2rem",
-
       fontWeight: "1000",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "10vh",
-
       fontSize: "3rem",
     },
     [theme.breakpoints.up("lg")]: {
@@ -64,7 +55,6 @@ const UseStyles = makeStyles((theme) => ({
     fontWeight: "900",
     [theme.breakpoints.up("xs")]: {
       fontSize: "1rem",
-      // fontWeight: "500",
     },
     [theme.breakpoints.up("sm")]: {
       fontSize: "1rem",
@@ -93,7 +83,7 @@ const UseStyles = makeStyles((theme) => ({
     },
   },
   staricon: {
-    color: "#FC6736",
+    color: "#F50834",
     marginRight: "1vw",
     marginTop: "5px",
     fontSize: "x-large",
@@ -135,7 +125,7 @@ export default function index() {
               justifyContent: "center",
             }}
           >
-            <img src={LadyPhoto} className={classes.img} />
+            <img src={LadyPhoto} alt=" " className={classes.img} />
           </div>
         </Grid>
         <Grid sm={6} item xs={12} className={classes.sizegrid}>
@@ -184,62 +174,6 @@ export default function index() {
           </div>
         </Grid>
       </Grid>
-
-      {/* <Grid
-        style={{
-          backgroundColor: "#02023D",
-          align: "center",
-        }}
-        container
-        className={classes.container}
-      >
-        {" "}
-        <Grid sm={6} item xs={12} className={classes.sizegrid}>
-          <div>
-            <div>
-              <Typography className={classes.root}>
-                About US
-                <Divider className={classes.divisize} />
-              </Typography>
-
-              <div className={classes.aboutpara}>
-                <ul>
-                  <li>
-                    <div style={{ marginTop: "20px", display: "flex" }}>
-                      <StarIcon className={classes.staricon} />
-                      <Typography className={classes.para}>
-                        We are offering resources to help improve your English
-                        language learning and speaking skills.
-                      </Typography>
-                    </div>
-                  </li>
-                  <li style={{ marginTop: "20px", display: "flex" }}>
-                    <StarIcon className={classes.staricon} />
-                    <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
-                    </Typography>
-                  </li>
-                  <li style={{ marginTop: "20px", display: "flex" }}>
-                    <StarIcon className={classes.staricon} />
-                    <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
-                    </Typography>
-                  </li>
-                  <li style={{ marginTop: "20px", display: "flex" }}>
-                    <StarIcon className={classes.staricon} />
-                    <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
-                    </Typography>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </Grid>
-      </Grid> */}
     </>
   );
 }

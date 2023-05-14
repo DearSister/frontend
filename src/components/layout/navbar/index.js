@@ -36,8 +36,6 @@ export default function Navbar() {
   return (
     <AppBar position="fixed">
       <>
-        {/* navbar goes here */}
-
         <nav
           className="bg-gray-100 sticky-nav"
           style={{ backgroundColor: "#04042C", width: "100%" }}
@@ -52,26 +50,9 @@ export default function Navbar() {
                       src={WebLogo}
                       style={{
                         width: "100%",
-                        // marginBottom: "-5vh",
-                        // height: "60%",
                       }}
                       alt=""
                     ></img>
-                    {/* <svg
-                    className="h-6 w-6 mr-1 text-blue-400"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                    />
-                  </svg> */}
-                    {/* <span className="font-bold">Dear Sister</span> */}
                   </a>
                 </div>
               </div>

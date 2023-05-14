@@ -10,16 +10,12 @@ const UseStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
     height: "auto",
-    // maxWidth: "100%",
-    // maxHeight: "100%",
   },
 
   // <----------------------Apply Size on hr ------------------>
   divisize: {
     backgroundColor: "#F50834",
-    // height: "7px",
     marginBottom: "20px",
-
     borderRadius: "10vw",
     [theme.breakpoints.down("xs")]: {
       width: "30%",
@@ -33,9 +29,6 @@ const UseStyles = makeStyles((theme) => ({
   // <---------------------Apply on Typography---------------->
   root: {
     color: "#fff",
-    // borderBottom: "20px solid red",
-    // borderWidth: "0 0 3px 0",
-
     [theme.breakpoints.down("xs")]: {
       marginTop: "5vh",
       marginLeft: "4vw",
@@ -45,12 +38,10 @@ const UseStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       marginTop: "10vh",
       fontSize: "2rem",
-
       fontWeight: "1000",
     },
     [theme.breakpoints.up("md")]: {
       marginTop: "10vh",
-
       fontSize: "3rem",
     },
     [theme.breakpoints.up("lg")]: {
@@ -64,7 +55,6 @@ const UseStyles = makeStyles((theme) => ({
     fontWeight: "900",
     [theme.breakpoints.up("xs")]: {
       fontSize: "1rem",
-      // fontWeight: "500",
     },
     [theme.breakpoints.up("sm")]: {
       fontSize: "1rem",
@@ -112,7 +102,6 @@ const UseStyles = makeStyles((theme) => ({
       weight: "100%",
     },
     [theme.breakpoints.down("md")]: {
-      // height: "30vh",
       weight: "90vw",
     },
   },
@@ -129,7 +118,6 @@ const UseStyles = makeStyles((theme) => ({
     paddingLeft: "1vw",
     [theme.breakpoints.down("xs")]: {
       fontSize: "2rem",
-      // fontWeight: "500",
     },
     [theme.breakpoints.down("sm")]: {
       fontSize: "2rem",
@@ -145,19 +133,13 @@ const UseStyles = makeStyles((theme) => ({
     color: "#fff",
     fontWeight: "1000",
     [theme.breakpoints.down("sm")]: {
-      // fontSize: "2rem",
       fontSize: "1rem",
-      // width: "500px",
     },
     [theme.breakpoints.up("md")]: {
       fontSize: "1rem",
-      // width: "500px",
-      // width: "100%",
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: "1rem",
-      // width: "500px",
-      // width: "100px",
     },
   },
   explorecou: {
@@ -273,7 +255,7 @@ export default function index() {
               justifyContent: "center",
             }}
           >
-            <img src={LadyPhoto} className={classes.img} />
+            <img src={LadyPhoto} alt=" " className={classes.img} />
           </div>
         </Grid>
       </Grid>

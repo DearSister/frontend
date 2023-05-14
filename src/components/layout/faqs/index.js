@@ -1,19 +1,9 @@
 import { React } from "react";
-import {
-  Grid,
-  Typography,
-  Card,
-  makeStyles,
-  Divider,
-  Avatar,
-} from "@material-ui/core";
+import { Grid, Typography, makeStyles, Divider } from "@material-ui/core";
 import Accordion from "@material-ui/core/Accordion";
 import AccordionSummary from "@material-ui/core/AccordionSummary";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
-// import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-import { accordion } from "@material-tailwind/react";
-// import PreviewIcon from "@material-ui/icons/Preview";
 const UseStyles = makeStyles((theme) => ({
   // <--------------Main Grid Container-------------------->
   container: {
@@ -22,7 +12,6 @@ const UseStyles = makeStyles((theme) => ({
     justifyContent: "center",
     height: "auto",
     color: "#01011F",
-    // paddingLeft: "1vw",
     [theme.breakpoints.up("lg")]: {
       paddingLeft: "18vw",
       paddingRight: "10vw",
@@ -36,22 +25,17 @@ const UseStyles = makeStyles((theme) => ({
       paddingLeft: "3vw",
       paddingRight: "3vw",
     },
-    // maxWidth: "100%",
-    // maxHeight: "100%",
   },
 
   // <----------------------Apply Size on hr ------------------>
   divisize: {
-    backgroundColor: "#FC6736",
-    // height: "7px",
+    backgroundColor: "#F50834",
     marginBottom: "20px",
-
     borderRadius: "10vw",
     [theme.breakpoints.down("xs")]: {
       width: "15%",
       height: "5px",
     },
-    // [theme.breakpoints.down("xs")]: { width: "5vw", height: "5px" },
     [theme.breakpoints.up("sm")]: { width: "7vw", height: "5px" },
     [theme.breakpoints.up("md")]: { width: "10vw", height: "6px" },
     [theme.breakpoints.up("lg")]: { width: "6vw", height: "8px" },
@@ -60,11 +44,7 @@ const UseStyles = makeStyles((theme) => ({
   // <---------------------Apply on Typography---------------->
   root: {
     color: "#fff",
-    // borderBottom: "20px solid red",
-    // borderWidth: "0 0 3px 0",
-
     [theme.breakpoints.down("xs")]: {
-      //   marginTop: "1vh",
       paddingTop: "2vh",
       marginLeft: "4vw",
       fontSize: "1.7rem",
@@ -73,16 +53,13 @@ const UseStyles = makeStyles((theme) => ({
     [theme.breakpoints.up("sm")]: {
       paddingTop: "2vh",
       fontSize: "2rem",
-
       fontWeight: "1000",
     },
     [theme.breakpoints.up("md")]: {
       paddingTop: "2vh",
-
       fontSize: "3rem",
     },
     [theme.breakpoints.up("lg")]: {
-      // paddingTop: "2vh",
       fontSize: "3rem",
     },
   },
@@ -103,11 +80,7 @@ const UseStyles = makeStyles((theme) => ({
   typosize: {
     color: "#fff",
     padding: "1px",
-
     fontSize: "1rem",
-    // borderBottom: "20px solid red",
-    // borderWidth: "0 0 3px 0",
-
     [theme.breakpoints.down("xs")]: {
       fontSize: "1rem",
       fontWeight: "1000",

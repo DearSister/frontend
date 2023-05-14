@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Grid, Typography, makeStyles, Link } from "@material-ui/core";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import TelegramIcon from "@material-ui/icons/Telegram";
@@ -218,7 +218,7 @@ export default function index() {
               justifyContent: "center",
             }}
           >
-            <img src={LadyPhoto} className={classes.img} />
+            <img src={LadyPhoto} alt=" " className={classes.img} />
           </div>
         </Grid>
       </Grid>
