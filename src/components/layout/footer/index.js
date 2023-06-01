@@ -111,7 +111,11 @@ export default function index() {
             </Link>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href="https://www.youtube.com/@DearSister/videos"
+              target="_blank"
+              className={classes.linkcss}
+            >
               Videos
             </Link>
           </Typography>
@@ -138,12 +142,20 @@ export default function index() {
             Socials
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href="https://www.youtube.com/@DearSister"
+              target="_blank"
+              className={classes.linkcss}
+            >
               Youtube
             </Link>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href="https://www.instagram.com/dearsister_officialy/"
+              target="_blank"
+              className={classes.linkcss}
+            >
               Instagram
             </Link>
           </Typography>{" "}
@@ -153,7 +165,11 @@ export default function index() {
             </Link>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href="https://github.com/DearSister"
+              target="_blank"
+              className={classes.linkcss}
+            >
               Github
             </Link>
           </Typography>
@@ -164,8 +180,12 @@ export default function index() {
             Contact
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
-              Telegram
+            <Link
+              href="https://discord.gg/mkzWcUM5"
+              target="_blank"
+              className={classes.linkcss}
+            >
+              Discord
             </Link>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
@@ -174,8 +194,12 @@ export default function index() {
             </Link>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
-              Discord
+            <Link
+              href="https://twitter.com/DearSisterYT"
+              target="_blank"
+              className={classes.linkcss}
+            >
+              Twitter
             </Link>
           </Typography>
         </Grid>
@@ -200,7 +224,7 @@ export default function index() {
             <YouTubeIcon align="center" justify="center" fontSize="large" />
           </Link>{" "}
           <Link
-            href="https://www.youtube.com/@DearSister"
+            href="https://github.com/DearSister"
             target="_blank"
             style={{ color: "#fff" }}
           >
@@ -215,14 +239,14 @@ export default function index() {
             <TelegramIcon align="center" justify="center" fontSize="large" />
           </Link>{" "}
           <Link
-            href="https://www.youtube.com/@DearSister"
+            href="https://twitter.com/DearSisterYT"
             target="_blank"
             style={{ color: "#fff" }}
           >
             <TwitterIcon align="center" justify="center" fontSize="large" />
           </Link>{" "}
           <Link
-            href="https://www.youtube.com/@DearSister"
+            href="https://www.instagram.com/dearsister_officialy/"
             target="_blank"
             style={{ color: "#fff" }}
           >

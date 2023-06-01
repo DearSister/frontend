@@ -103,146 +103,148 @@ export default function Index() {
   const classes = UseStyles();
 
   return (
-    <div
-      style={{
-        backgroundColor: "#02023D",
-        align: "center",
-        paddingBottom: "1vh",
-      }}
-    >
-      <div className={classes.header}>
+    <section id="#faqs">
+      <div
+        style={{
+          backgroundColor: "#02023D",
+          align: "center",
+          paddingBottom: "1vh",
+        }}
+      >
+        <div className={classes.header}>
+          <div>
+            <Typography className={classes.root}>
+              FAQS
+              <Divider className={classes.divisize} />
+            </Typography>
+          </div>
+        </div>
         <div>
-          <Typography className={classes.root}>
-            FAQS
-            <Divider className={classes.divisize} />
-          </Typography>
+          <Grid container className={classes.container} spacing={2}>
+            {/* Use two columns on screens larger than md */}
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+            <Grid item xs={12} md={6}>
+              <Accordion className={classes.accordionsize}>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
+                  aria-controls="panel1a-content"
+                  id="panel1a-header"
+                >
+                  <Typography className={classes.typosize}>
+                    Accordion 1
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography className={classes.typosize}>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Suspendisse malesuada lacus ex, sit amet blandit leo
+                    lobortis eget.
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            </Grid>
+          </Grid>
         </div>
       </div>
-      <div>
-        <Grid container className={classes.container} spacing={2}>
-          {/* Use two columns on screens larger than md */}
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <Accordion className={classes.accordionsize}>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon style={{ color: "#fff" }} />}
-                aria-controls="panel1a-content"
-                id="panel1a-header"
-              >
-                <Typography className={classes.typosize}>
-                  Accordion 1
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography className={classes.typosize}>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-          </Grid>
-        </Grid>
-      </div>
-    </div>
+    </section>
   );
 }

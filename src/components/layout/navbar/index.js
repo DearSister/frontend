@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-scroll";
 import { Typography, makeStyles, AppBar } from "@material-ui/core";
 
 import WebLogo from "../../../assests/Navbar/WebLogo1.png";
@@ -59,34 +60,34 @@ export default function Navbar() {
               {/* primary nav */}
               <div className="hidden md:flex items-center space-x-1">
                 <a
-                  href="/#home"
+                  href="/about"
                   className="py-5 px-3 font-bold hover:text-gray-700"
                 >
                   <Typography className={classes.underline}>Home</Typography>
                 </a>
                 <a
-                  href="/videos"
+                  href="/about"
                   className="py-5 px-3 font-bold hover:text-gray-700"
                 >
                   <Typography className={classes.underline}>Videos</Typography>
                 </a>
-                <a
-                  href="/about_us"
-                  className="py-5 px-3 font-bold hover:text-gray-700"
-                >
+                <a href="/" className="py-5 px-3 font-bold hover:text-gray-700">
                   <Typography className={classes.underline}>
                     About Us
                   </Typography>
+                </a>
+                <a href="/" className="py-5 px-3 font-bold hover:text-gray-700">
+                  <Typography className={classes.underline}>Courses</Typography>
                 </a>
               </div>
 
               {/* secondary nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="/login" className="py-5 px-3">
+                <a href="/" className="py-5 px-3">
                   <Typography className={classes.underline}>Login</Typography>
                 </a>
                 <a
-                  href="/signup"
+                  href="/"
                   className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
                 >
                   Signup
@@ -94,7 +95,7 @@ export default function Navbar() {
               </div>
 
               {/* mobile button goes here */}
-              <div style={{}} className="md:hidden flex items-center">
+              <div className="md:hidden flex items-center">
                 <button
                   className="mobile-menu-button"
                   onClick={handleMenuToggle}
@@ -125,13 +126,13 @@ export default function Navbar() {
             } md:hidden`}
             style={{ backgroundColor: "#04042C" }}
           >
-            <a href="/#home" className="block py-2 px-4 font-bold  text-sm ">
+            <a href="home" className="block py-2 px-4 font-bold  text-sm ">
               <Typography className={classes.mobunderline}>Home</Typography>
             </a>
-            <a href="/videos" className="block py-2 px-4 font-bold  text-sm ">
+            <a href="videos" className="block py-2 px-4 font-bold  text-sm ">
               <Typography className={classes.mobunderline}>Videos</Typography>
             </a>
-            <a href="/about_us" className="block py-2 px-4 font-bold  text-sm ">
+            <a href="about" className="block py-2 px-4 font-bold  text-sm ">
               <Typography className={classes.mobunderline}>About Us</Typography>
             </a>
             {/* <div className="hidden md:flex items-center space-x-1"> */}

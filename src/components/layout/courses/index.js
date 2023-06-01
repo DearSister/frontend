@@ -161,7 +161,7 @@ const UseStyles = makeStyles((theme) => ({
 export default function index() {
   const classes = UseStyles();
   return (
-    <>
+    <section id="#course">
       <Grid
         style={{
           backgroundColor: "#01011F",
@@ -259,6 +259,6 @@ export default function index() {
           </div>
         </Grid>
       </Grid>
-    </>
+    </section>
   );
 }
