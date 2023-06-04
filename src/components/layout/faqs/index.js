@@ -103,7 +103,7 @@ export default function Index() {
   const classes = UseStyles();
 
   return (
-    <section id="#faqs">
+    <section id="faqs_section">
       <div
         style={{
           backgroundColor: "#02023D",
@@ -130,14 +130,13 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    How can I improve my English speaking skills?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Improving your English speaking skills requires consistent
+                    practice and exposure to the language.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -150,14 +149,15 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    How can I make the most out of joining an English-speaking
+                    community?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    To make the most out of joining an English-speaking
+                    community, actively participate in conversations and
+                    discussions.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -170,14 +170,15 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    How can I prepare for English language proficiency to fully
+                    benefit from YouTube channel?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    To prepare for English language proficiency and fully
+                    benefit from our YouTube channel, we recommend a systematic
+                    approach.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -190,14 +191,14 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    How can I improve my English speaking skills through your
+                    YouTube channel?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Our YouTube channel offers various resources to enhance your
+                    English speaking skills.
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -210,14 +211,13 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    How do I join your community?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    Make sure to join our Youtube and Instagram. You can find us
+                    on all socials media platforms as @dearsister
                   </Typography>
                 </AccordionDetails>
               </Accordion>
@@ -230,14 +230,14 @@ export default function Index() {
                   id="panel1a-header"
                 >
                   <Typography className={classes.typosize}>
-                    Accordion 1
+                    What are some effective techniques or videos on your channel
+                    for expanding my English vocabulary?
                   </Typography>
                 </AccordionSummary>
                 <AccordionDetails>
                   <Typography className={classes.typosize}>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                    Suspendisse malesuada lacus ex, sit amet blandit leo
-                    lobortis eget.
+                    On our channel, you can find vocabulary-building videos that
+                    cover a wide range of topics and themes.
                   </Typography>
                 </AccordionDetails>
               </Accordion>

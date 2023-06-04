@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-scroll";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // <--------------------Importing Components---------------->
 import Navbar from "../layout/navbar/index";
@@ -9,28 +9,36 @@ import Number from "../layout/numbersay/index";
 import Course from "../layout/courses/index.js";
 import Faqs from "../layout/faqs/index";
 import Footer from "../layout/footer/index";
+import Login from "../pages/login/index";
 //<--------------------------------------------------------->
 export default function Layout() {
   return (
-    <div>
-      <Navbar />
-      <Link to="home" smooth={true} duration={500}>
-        <Home />
-      </Link>
-      <Link to="about" smooth={true} duration={500}>
-        <About />
-      </Link>
-      <Link to="numbers" smooth={true} duration={500}>
-        <Number />
-      </Link>
-      <Link to="course" smooth={true} duration={500}>
-        <Course />
-      </Link>
-      <Link to="faqs" smooth={true} duration={500}>
-        <Faqs />
-      </Link>
-
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <Home /> <About />
+              <Number />
+              <Course />
+              <Faqs />
+              <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/login"
+          element={
+            <>
+              <Navbar />
+              <Login />
+              <Footer />
+            </>
+          }
+        ></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }

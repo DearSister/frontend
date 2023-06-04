@@ -101,7 +101,7 @@ const UseStyles = makeStyles((theme) => ({
 export default function index() {
   const classes = UseStyles();
   return (
-    <section id="about_us">
+    <section id="about_section">
       <Grid
         style={{
           backgroundColor: "#02023D",
@@ -146,26 +146,29 @@ export default function index() {
                         language learning and speaking skills.
                       </Typography>
                     </div>
-                  </li>
+                  </li>{" "}
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      Our channel provides conversation practice sessions where
+                      you can listen to and participate in dialogues,
+                      role-plays, and discussions on different topics.
                     </Typography>
                   </li>
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      We are dedicated to helping learners of all levels improve
+                      their English language skills in an engaging and enjoyable
+                      Way.
                     </Typography>
                   </li>
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      Our English learning channel was founded with a passion
+                      for language education and a desire to make learning
+                      English accessible to learners worldwide.
                     </Typography>
                   </li>
                 </ul>

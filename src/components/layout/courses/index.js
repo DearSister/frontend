@@ -161,7 +161,7 @@ const UseStyles = makeStyles((theme) => ({
 export default function index() {
   const classes = UseStyles();
   return (
-    <section id="#course">
+    <section id="course_section">
       <Grid
         style={{
           backgroundColor: "#01011F",
@@ -194,30 +194,32 @@ export default function index() {
                     >
                       <StarIcon className={classes.staricon} />
                       <Typography className={classes.para}>
-                        We are offering resources to help improve your English
-                        language learning and speaking skills.
+                        This course is perfect for those who are new to the
+                        English language.
                       </Typography>
                     </div>
                   </li>
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      We start with the basics, covering fundamental grammar
+                      rules, essential vocabulary, and simple conversational
+                      phrases.
                     </Typography>
                   </li>
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      Each lesson includes interactive exercises and quizzes to
+                      reinforce your learning
                     </Typography>
                   </li>
                   <li style={{ marginTop: "20px", display: "flex" }}>
                     <StarIcon className={classes.staricon} />
                     <Typography className={classes.para}>
-                      We are offering resources to help improve your English
-                      language learning and speaking skills.
+                      By the end of this course, you will have a solid
+                      foundation in English and be ready to progress to more
+                      advanced topics.
                     </Typography>
                   </li>
                 </ul>

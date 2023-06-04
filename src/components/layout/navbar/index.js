@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-scroll";
 import { Typography, makeStyles, AppBar } from "@material-ui/core";
-
+import { Link as LinkRouter } from "react-router-dom";
 import WebLogo from "../../../assests/Navbar/WebLogo1.png";
 
 const UseStyles = makeStyles({
@@ -59,39 +59,53 @@ export default function Navbar() {
               </div>
               {/* primary nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a
-                  href="/about"
+                <Link
+                  href=""
+                  to="home_section"
+                  smooth={true}
                   className="py-5 px-3 font-bold hover:text-gray-700"
                 >
                   <Typography className={classes.underline}>Home</Typography>
-                </a>
+                </Link>
                 <a
-                  href="/about"
+                  href="https://www.youtube.com/@DearSister/videos"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="py-5 px-3 font-bold hover:text-gray-700"
                 >
                   <Typography className={classes.underline}>Videos</Typography>
                 </a>
-                <a href="/" className="py-5 px-3 font-bold hover:text-gray-700">
+                <Link
+                  href=""
+                  to="about_section"
+                  smooth={true}
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
                   <Typography className={classes.underline}>
                     About Us
                   </Typography>
-                </a>
-                <a href="/" className="py-5 px-3 font-bold hover:text-gray-700">
+                </Link>
+                <Link
+                  href=""
+                  to="course_section"
+                  smooth={true}
+                  className="py-5 px-3 font-bold hover:text-gray-700"
+                >
                   <Typography className={classes.underline}>Courses</Typography>
-                </a>
+                </Link>
               </div>
 
               {/* secondary nav */}
               <div className="hidden md:flex items-center space-x-1">
-                <a href="/" className="py-5 px-3">
+                <LinkRouter to="/login" className="py-5 px-3">
                   <Typography className={classes.underline}>Login</Typography>
-                </a>
-                <a
-                  href="/"
+                </LinkRouter>
+                <LinkRouter
+                  to="/login"
                   className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
                 >
                   Signup
-                </a>
+                </LinkRouter>
               </div>
 
               {/* mobile button goes here */}
@@ -126,28 +140,81 @@ export default function Navbar() {
             } md:hidden`}
             style={{ backgroundColor: "#04042C" }}
           >
-            <a href="home" className="block py-2 px-4 font-bold  text-sm ">
-              <Typography className={classes.mobunderline}>Home</Typography>
-            </a>
-            <a href="videos" className="block py-2 px-4 font-bold  text-sm ">
-              <Typography className={classes.mobunderline}>Videos</Typography>
-            </a>
-            <a href="about" className="block py-2 px-4 font-bold  text-sm ">
-              <Typography className={classes.mobunderline}>About Us</Typography>
-            </a>
-            {/* <div className="hidden md:flex items-center space-x-1"> */}
+            <Link
+              href=""
+              to="home_section"
+              smooth={true}
+              className="block py-2 px-4 font-bold  text-sm "
+            >
+              <Typography
+                className={classes.mobunderline}
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                Home
+              </Typography>
+            </Link>
             <a
+              href="https://www.youtube.com/@DearSister/videos"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block py-2 px-4 font-bold  text-sm "
+            >
+              <Typography
+                className={classes.mobunderline}
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                Videos
+              </Typography>
+            </a>
+            <Link
+              href=""
+              to="about_section"
+              smooth={true}
+              className="block py-2 px-4 font-bold  text-sm "
+            >
+              <Typography
+                className={classes.mobunderline}
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                About Us
+              </Typography>
+            </Link>{" "}
+            <Link
+              href=""
+              to="course_section"
+              smooth={true}
+              className="block py-2 px-4 font-bold  text-sm "
+            >
+              <Typography
+                className={classes.mobunderline}
+                onClick={() => {
+                  setIsMenuOpen(!isMenuOpen);
+                }}
+              >
+                Courses
+              </Typography>
+            </Link>
+            {/* <div className="hidden md:flex items-center space-x-1"> */}
+            <LinkRouter
               href="/login"
+              target="_blank"
+              rel="noopener noreferrer"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300 "
             >
               Login
-            </a>
-            <a
+            </LinkRouter>
+            <LinkRouter
               href="/signup"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
             >
               Signup
-            </a>
+            </LinkRouter>
           </div>
         </nav>
       </>

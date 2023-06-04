@@ -1,5 +1,6 @@
 import { React } from "react";
-import { Grid, Typography, makeStyles, Divider, Link } from "@material-ui/core";
+import { Link } from "react-scroll";
+import { Grid, Typography, makeStyles, Divider } from "@material-ui/core";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import YouTubeIcon from "@material-ui/icons/YouTube";
 import InstagramIcon from "@material-ui/icons/Instagram";
@@ -101,23 +102,35 @@ export default function index() {
             Organisation
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              // href=""
+              to="about_section"
+              smooth={true}
+              className={classes.linkcss}
+            >
               About
             </Link>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
-              FAQ
+            <Link
+              // href=""
+              to="faqs_section"
+              smooth={true}
+              className={classes.linkcss}
+            >
+              FAQS
             </Link>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://www.youtube.com/@DearSister/videos"
+              alt=""
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Videos
-            </Link>
+            </a>
           </Typography>
         </Grid>
         <Grid item xs={4} md={4} lg={2} className={classes.contai}>
@@ -126,12 +139,22 @@ export default function index() {
             Community
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href=""
+              to="course_section"
+              smooth={true}
+              className={classes.linkcss}
+            >
               Courses
             </Link>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <Link
+              href=""
+              to="home_section"
+              smooth={true}
+              className={classes.linkcss}
+            >
               Events
             </Link>
           </Typography>
@@ -142,36 +165,45 @@ export default function index() {
             Socials
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://www.youtube.com/@DearSister"
+              alt=""
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Youtube
-            </Link>
+            </a>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://www.instagram.com/dearsister_officialy/"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Instagram
-            </Link>
+            </a>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <a
+              href="https://t.me/+f40joA149YRmNDI1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={classes.linkcss}
+            >
               Telegram
-            </Link>
+            </a>
           </Typography>
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://github.com/DearSister"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Github
-            </Link>
+            </a>
           </Typography>
         </Grid>
         <Grid item xs={4} md={4} lg={2} className={classes.contai}>
@@ -180,27 +212,29 @@ export default function index() {
             Contact
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://discord.gg/mkzWcUM5"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Discord
-            </Link>
+            </a>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link href="#" className={classes.linkcss}>
+            <a href="/" className={classes.linkcss}>
               Email
-            </Link>
+            </a>
           </Typography>{" "}
           <Typography style={{ marginTop: "1vh" }}>
-            <Link
+            <a
               href="https://twitter.com/DearSisterYT"
               target="_blank"
+              rel="noopener noreferrer"
               className={classes.linkcss}
             >
               Twitter
-            </Link>
+            </a>
           </Typography>
         </Grid>
       </Grid>
@@ -216,56 +250,63 @@ export default function index() {
           </Link>
         </Grid>
         <Grid item md={12} lg={6} sm={12} style={{ color: "white" }}>
-          <Link
+          <a
             href="https://www.youtube.com/@DearSister"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <YouTubeIcon align="center" justify="center" fontSize="large" />
-          </Link>{" "}
-          <Link
+          </a>{" "}
+          <a
             href="https://github.com/DearSister"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <GitHubIcon align="center" justify="center" />
-          </Link>{" "}
-          <Link
-            href="https://www.youtube.com/@DearSister"
+          </a>{" "}
+          <a
+            href="https://t.me/+f40joA149YRmNDI1"
             target="_blank"
+            rel="noopener noreferrer"
             // color="secondary"
             style={{ color: "#fff" }}
           >
             <TelegramIcon align="center" justify="center" fontSize="large" />
-          </Link>{" "}
-          <Link
+          </a>{" "}
+          <a
             href="https://twitter.com/DearSisterYT"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <TwitterIcon align="center" justify="center" fontSize="large" />
-          </Link>{" "}
-          <Link
+          </a>{" "}
+          <a
             href="https://www.instagram.com/dearsister_officialy/"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <InstagramIcon align="center" justify="center" fontSize="large" />
-          </Link>{" "}
-          <Link
+          </a>{" "}
+          <a
             href="https://www.youtube.com/@DearSister"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <EmailIcon align="center" justify="center" fontSize="large" />
-          </Link>{" "}
-          <Link
+          </a>{" "}
+          <a
             href="https://www.youtube.com/@DearSister"
             target="_blank"
+            rel="noopener noreferrer"
             style={{ color: "#fff" }}
           >
             <LinkedInIcon align="center" justify="center" fontSize="large" />
-          </Link>
+          </a>
         </Grid>
       </Grid>
       <div className={classes.diviline}>

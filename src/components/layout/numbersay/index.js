@@ -202,7 +202,7 @@ const Counter = ({ end }) => {
     observer.observe(targetRef.current);
 
     return () => {
-      observer.unobserve(targetRef.current);
+      // observer.unobserve(targetRef.current);
     };
   }, []);
 
@@ -293,8 +293,6 @@ const Counter = ({ end }) => {
   );
 };
 const GridCounter = () => {
-  const classes = UseStyles();
-
   return (
     <div>
       <Counter key={1} end={10000 * 4400} />
