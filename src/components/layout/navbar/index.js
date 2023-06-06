@@ -215,7 +215,7 @@ export default function Navbar() {
               Login
             </LinkRouter>
             <LinkRouter
-              to="/signup"
+              to="/login"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
