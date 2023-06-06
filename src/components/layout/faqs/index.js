@@ -109,6 +109,7 @@ export default function Index() {
           backgroundColor: "#02023D",
           align: "center",
           paddingBottom: "1vh",
+          // width: "100vw",
         }}
       >
         <div className={classes.header}>
@@ -120,7 +121,7 @@ export default function Index() {
           </div>
         </div>
         <div>
-          <Grid container className={classes.container} spacing={2}>
+          <Grid container className={classes.container} spacing={0}>
             {/* Use two columns on screens larger than md */}
             <Grid item xs={12} md={6}>
               <Accordion className={classes.accordionsize}>

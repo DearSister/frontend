@@ -24,6 +24,9 @@ const UseStyles = makeStyles({
       textDecoration: "underline",
     },
   },
+  fullsize: {
+    width: "100vw",
+  },
 });
 
 export default function Navbar() {
@@ -36,12 +39,12 @@ export default function Navbar() {
 
   return (
     <AppBar position="fixed">
-      <>
-        <nav
+      <div>
+        <div
           className="bg-gray-100 sticky-nav"
-          style={{ backgroundColor: "#04042C", width: "100%" }}
+          style={{ backgroundColor: "#04042C" }}
         >
-          <div className="max-w-6xl mx-auto px-4">
+          <div className="max-w-5xl mx-auto px-4">
             <div className="flex justify-between">
               <div className="flex space-x-6">
                 {/* logo */}
@@ -202,22 +205,27 @@ export default function Navbar() {
             </Link>
             {/* <div className="hidden md:flex items-center space-x-1"> */}
             <LinkRouter
-              href="/login"
-              target="_blank"
+              to="/login"
               rel="noopener noreferrer"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300 "
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
             >
               Login
             </LinkRouter>
             <LinkRouter
-              href="/signup"
+              to="/signup"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
+              onClick={() => {
+                setIsMenuOpen(!isMenuOpen);
+              }}
             >
               Signup
             </LinkRouter>
           </div>
-        </nav>
-      </>
+        </div>
+      </div>
     </AppBar>
   );
 }
