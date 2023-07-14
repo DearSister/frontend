@@ -10,6 +10,7 @@ import Course from "../layout/courses/index.js";
 import Faqs from "../layout/faqs/index";
 import Footer from "../layout/footer/index";
 import Login from "../pages/login/index";
+import SignUp from "../pages/signup/Signup";
 //<--------------------------------------------------------->
 export default function Layout() {
   return (
@@ -34,6 +35,16 @@ export default function Layout() {
             <>
               <Navbar />
               <Login />
+              <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/signup"
+          element={
+            <>
+              <Navbar />
+              <SignUp />
               <Footer />
             </>
           }

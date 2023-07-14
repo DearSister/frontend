@@ -1,116 +1,99 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import { Link as LinkRouter } from "react-router-dom";
-import { Typography, Container, Grid, Paper } from "@material-ui/core";
-import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
-import LadyPhoto from "../../../assests/Login/updation.jpg";
+import { Link as RouterLink } from "react-router-dom";
+import { Container, Typography, Link, Box, Divider } from "@mui/material";
+import styled from "@emotion/styled";
+import LoginForm from "../login/LoginForm";
+import SocialAuth from "../signup/SocialAuth";
+import Logo from "../login/Logo";
+import { motion } from "framer-motion";
+import { Icon } from "@iconify/react";
+import googleIcon from "@iconify-icons/logos/google-icon";
+import { Button } from "@mui/material";
+//////////////////////////////////
+const RootStyle = styled("div")({
+  background: "rgb(249, 250, 251)",
+  height: "100vh",
+  display: "grid",
+  placeItems: "center",
+});
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    height: "100vh",
-    // backgroundColor: "
-    paddingTop: "20vh",
-    paddingBottom: "20vh",
-    backgroundColor: "black",
-  },
-  appBar: {
-    marginBottom: theme.spacing(2),
-  },
-  container: {
-    paddingTop: theme.spacing(4),
-    paddingBottom: theme.spacing(4),
-  },
-  paper: {
-    padding: theme.spacing(2),
-    display: "flex",
-    overflow: "auto",
-    flexDirection: "column",
-    backgroundColor: "#01011F",
-    color: "white",
-  },
-  explorecourse: {
-    color: "#fff",
-    fontWeight: "1000",
-    [theme.breakpoints.down("sm")]: {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("md")]: {
-      fontSize: "1rem",
-    },
-    [theme.breakpoints.up("lg")]: {
-      fontSize: "1rem",
-    },
-  },
-  explorecou: {
-    color: "#fff",
-    opacity: 0.9, // set opacity to 70%
-    backgroundColor: "#F50834", // set background color to yellow
-    boxShadow: "0px 0px 10px #D21337", // add a yellow shadow effect
-    borderRadius: "25px", // add rounded corners
-    // add padding
-    padding: "10px",
-    margin: "10px",
-    marginTop: "40vh",
-    transition: "all 0.2s ease-in-out", // add transition effect
-    cursor: "pointer", // add cursor on hover
-    width: "100%",
-  },
-  img: {
-    [theme.breakpoints.up("lg")]: {
-      height: "55vh",
-      weight: "100%",
-    },
-    [theme.breakpoints.down("md")]: {
-      width: "70vw",
-    },
-  },
-}));
+const HeadingStyle = styled(Box)({
+  textAlign: "center",
+});
 
-const App = () => {
-  const classes = useStyles();
+const ContentStyle = styled("div")({
+  maxWidth: 480,
+  padding: 25,
+  margin: "auto",
+  display: "flex",
+  justifyContent: "center",
+  flexDirection: "column",
+  background: "#fff",
+});
 
+let easing = [0.6, -0.05, 0.01, 0.99];
+const fadeInUp = {
+  initial: {
+    y: 60,
+    opacity: 0,
+    transition: { duration: 0.6, ease: easing },
+  },
+  animate: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.6,
+      ease: easing,
+    },
+  },
+};
+
+const Login = ({ setAuth }) => {
   return (
-    <div className={classes.root}>
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
-        <img src={LadyPhoto} alt=" " className={classes.img} />
-      </div>
-      <Container maxWidth="lg" className={classes.container}>
-        <Grid container spacing={3}>
-          <Grid item xs={12}>
-            <Paper className={classes.paper}>
-              {/* Your content goes here */}
-              <Typography variant="h5">
-                Welcome to the Building Phase Page
-              </Typography>
-              <Typography variant="body1">
-                This page is currently under construction. Please check back
-                later for updates.
-              </Typography>{" "}
-            </Paper>{" "}
-            <div className={classes.explorecourse}>
-              <LinkRouter
-                to="/"
-                // target="_blank"
-                // rel="noopener"
-                // color="secondary"
-                className={classes.explorecou}
-              >
-                {`  Main Page  `}
-                <VideoLibraryIcon />
-              </LinkRouter>{" "}
-            </div>
-          </Grid>
-        </Grid>
-      </Container>{" "}
-    </div>
+    <RootStyle>
+      <Container maxWidth="sm">
+        <ContentStyle>
+          <HeadingStyle component={motion.div} {...fadeInUp}>
+            {/* <Logo /> */}
+            <Typography sx={{ color: "text.secondary", mb: 5 }}>
+              Login to your account
+            </Typography>
+          </HeadingStyle>
+          <Box component={motion.div} {...fadeInUp}>
+            {/* <SocialAuth /> */}
+          </Box>
+          <LoginForm />
+          <Divider sx={{ my: 3 }} component={motion.div} {...fadeInUp}>
+            {/* <Typography
+              variant="body2"
+              sx={{ color: "text.secondary" }}
+            ></Typography> */}
+          </Divider>
+
+          {/* <SignupForm setAuth={setAuth} /> */}
+          <Button
+            variant="contained"
+            color="primary"
+            startIcon={<Icon icon={googleIcon} />}
+          >
+            Continue with Google
+          </Button>
+          <Typography
+            component={motion.p}
+            {...fadeInUp}
+            variant="body2"
+            align="center"
+            sx={{ mt: 3 }}
+          >
+            Don’t have an account?{" "}
+            <Link variant="subtitle2" component={RouterLink} to="/signup">
+              Sign up
+            </Link>
+          </Typography>
+        </ContentStyle>
+      </Container>
+    </RootStyle>
   );
 };
 
-export default App;
+export default Login;

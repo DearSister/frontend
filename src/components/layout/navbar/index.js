@@ -104,7 +104,7 @@ export default function Navbar() {
                   <Typography className={classes.underline}>Login</Typography>
                 </LinkRouter>
                 <LinkRouter
-                  to="/login"
+                  to="/signup"
                   className="py-2 px-3 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
                 >
                   Signup
@@ -215,7 +215,7 @@ export default function Navbar() {
               Login
             </LinkRouter>
             <LinkRouter
-              to="/login"
+              to="/signup"
               className="py-0 px-3 m-1 bg-yellow-400 hover:bg-yellow-300 text-yellow-900 hover:text-yellow-800 rounded transition duration-300"
               onClick={() => {
                 setIsMenuOpen(!isMenuOpen);
