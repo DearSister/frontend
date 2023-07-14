@@ -77,6 +77,25 @@ const SignupForm = ({ setAuth }) => {
             <TextField
               fullWidth
               label="First name"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("firstName")}
               error={Boolean(touched.firstName && errors.firstName)}
               helperText={touched.firstName && errors.firstName}
@@ -85,6 +104,25 @@ const SignupForm = ({ setAuth }) => {
             <TextField
               fullWidth
               label="Last name"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("lastName")}
               error={Boolean(touched.lastName && errors.lastName)}
               helperText={touched.lastName && errors.lastName}
@@ -102,6 +140,25 @@ const SignupForm = ({ setAuth }) => {
               autoComplete="username"
               type="email"
               label="Email address"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("email")}
               error={Boolean(touched.email && errors.email)}
               helperText={touched.email && errors.email}
@@ -112,6 +169,25 @@ const SignupForm = ({ setAuth }) => {
               autoComplete="current-password"
               type={showPassword ? "text" : "password"}
               label="Password"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("password")}
               InputProps={{
                 endAdornment: (
@@ -119,6 +195,7 @@ const SignupForm = ({ setAuth }) => {
                     <IconButton
                       edge="end"
                       onClick={() => setShowPassword((prev) => !prev)}
+                      style={{ color: "white" }}
                     >
                       <Icon
                         icon={

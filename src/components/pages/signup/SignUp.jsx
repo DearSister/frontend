@@ -76,10 +76,31 @@ const SignupForm = ({ setAuth }) => {
           >
             <TextField
               fullWidth
-              label="First name"
-              {...getFieldProps("firstName")}
-              error={Boolean(touched.firstName && errors.firstName)}
-              helperText={touched.firstName && errors.firstName}
+              autoComplete="username"
+              type="email"
+              label="Email Address"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
+              {...getFieldProps("email")}
+              error={Boolean(touched.email && errors.email)}
+              helperText={touched.email && errors.email}
             />
 
             <TextField
@@ -101,7 +122,26 @@ const SignupForm = ({ setAuth }) => {
               fullWidth
               autoComplete="username"
               type="email"
-              label="Email address"
+              label="Email Address"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("email")}
               error={Boolean(touched.email && errors.email)}
               helperText={touched.email && errors.email}

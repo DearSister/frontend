@@ -13,6 +13,8 @@ import {
   Stack,
   TextField,
 } from "@mui/material";
+// import { TextField } from "@mui/material";
+import { styled } from "@mui/system";
 // import { LoadingButton } from "@mui/lab";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
@@ -61,7 +63,26 @@ const LoginForm = ({ setAuth }) => {
 
   const { errors, touched, values, isSubmitting, handleSubmit, getFieldProps } =
     formik;
-
+  const CustomTextField = styled(TextField)(() => ({
+    "& label": {
+      color: "white",
+    },
+    "& .MuiOutlinedInput-root": {
+      color: "white",
+      "& fieldset": {
+        borderColor: "white",
+      },
+      "&:hover fieldset": {
+        borderColor: "white",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "white",
+      },
+    },
+    "& .MuiInputBase-input": {
+      caretColor: "white",
+    },
+  }));
   return (
     <FormikProvider value={formik}>
       <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
@@ -88,10 +109,38 @@ const LoginForm = ({ setAuth }) => {
               autoComplete="username"
               type="email"
               label="Email Address"
+              InputLabelProps={{ style: { color: "white" } }}
+              InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
+              }}
               {...getFieldProps("email")}
               error={Boolean(touched.email && errors.email)}
               helperText={touched.email && errors.email}
             />
+            {/* <TextField
+              fullWidth
+              autoComplete="username"
+              type="email"
+              label="Email Address"
+              {...getFieldProps("email")}
+              error={Boolean(touched.email && errors.email)}
+              helperText={touched.email && errors.email}
+            /> */}
 
             <TextField
               fullWidth
@@ -101,11 +150,29 @@ const LoginForm = ({ setAuth }) => {
               {...getFieldProps("password")}
               error={Boolean(touched.password && errors.password)}
               helperText={touched.password && errors.password}
+              InputLabelProps={{ style: { color: "white" } }}
               InputProps={{
+                style: {
+                  color: "white",
+                  "& .MuiOutlinedInput-root": {
+                    color: "white",
+                    boxShadow: "0px 2px 4px rgba(0, 0, 0, 0.1)", // Add your desired shadow styles here
+                    "& fieldset": {
+                      borderColor: "white",
+                    },
+                    "&:hover fieldset": {
+                      borderColor: "white",
+                    },
+                    "&.Mui-focused fieldset": {
+                      borderColor: "white",
+                    },
+                  },
+                },
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
                       onClick={() => setShowPassword((prev) => !prev)}
+                      style={{ color: "white" }}
                     >
                       {showPassword ? (
                         <Icon icon="eva:eye-fill" />
@@ -137,6 +204,7 @@ const LoginForm = ({ setAuth }) => {
                     checked={values.remember}
                   />
                 }
+                style={{ color: "white" }}
                 label="Remember me"
               />
 

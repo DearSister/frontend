@@ -51,13 +51,26 @@ const fadeInUp = {
 
 const Signup = ({ setAuth }) => {
   return (
-    <RootStyle>
+    <RootStyle
+      style={{
+        backgroundColor: "#01011F",
+      }}
+    >
       <Container maxWidth="sm">
-        <ContentStyle>
+        <ContentStyle
+          style={{
+            backgroundColor: "#0B0B4A",
+          }}
+        >
           <HeadingStyle component={motion.div} {...fadeInUp}>
             {/* <Logo /> */}
 
-            <Typography sx={{ color: "text.secondary", mb: 5 }}>
+            <Typography
+              sx={{ color: "text.secondary", mb: 5 }}
+              style={{
+                color: "#fff",
+              }}
+            >
               Enter your details below.
             </Typography>
           </HeadingStyle>
@@ -86,14 +99,24 @@ const Signup = ({ setAuth }) => {
             {...fadeInUp}
             variant="body2"
             align="center"
-            sx={{ color: "text.secondary", mt: 2 }}
+            sx={{ color: "white", mt: 2 }}
           >
             By registering, I agree to{" "}
-            <Link underline="always" color="text.primary" href="#">
+            <Link
+              underline="always"
+              style={{ color: "white", textDecorationColor: "white" }}
+              color="text.primary"
+              href="#"
+            >
               Terms of Service
             </Link>{" "}
             &{" "}
-            <Link underline="always" color="text.primary" href="#">
+            <Link
+              underline="always"
+              style={{ color: "white", textDecorationColor: "white" }}
+              color="text.primary"
+              href="#"
+            >
               Privacy Policy
             </Link>
             .
@@ -105,6 +128,7 @@ const Signup = ({ setAuth }) => {
             variant="body2"
             align="center"
             sx={{ mt: 3 }}
+            style={{ color: "white", textDecorationColor: "white" }}
           >
             Have an account?{" "}
             <Link variant="subtitle2" component={RouterLink} to="/login">

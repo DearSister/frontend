@@ -50,12 +50,25 @@ const fadeInUp = {
 
 const Login = ({ setAuth }) => {
   return (
-    <RootStyle>
+    <RootStyle
+      style={{
+        backgroundColor: "#01011F",
+      }}
+    >
       <Container maxWidth="sm">
-        <ContentStyle>
+        <ContentStyle
+          style={{
+            backgroundColor: "#0B0B4A",
+          }}
+        >
           <HeadingStyle component={motion.div} {...fadeInUp}>
             {/* <Logo /> */}
-            <Typography sx={{ color: "text.secondary", mb: 5 }}>
+            <Typography
+              sx={{ color: "text.secondary", mb: 5 }}
+              style={{
+                color: "#fff",
+              }}
+            >
               Login to your account
             </Typography>
           </HeadingStyle>
@@ -63,7 +76,14 @@ const Login = ({ setAuth }) => {
             {/* <SocialAuth /> */}
           </Box>
           <LoginForm />
-          <Divider sx={{ my: 3 }} component={motion.div} {...fadeInUp}>
+          <Divider
+            sx={{ my: 3 }}
+            component={motion.div}
+            {...fadeInUp}
+            style={{
+              backgroundColor: "#fff",
+            }}
+          >
             {/* <Typography
               variant="body2"
               sx={{ color: "text.secondary" }}
@@ -84,6 +104,9 @@ const Login = ({ setAuth }) => {
             variant="body2"
             align="center"
             sx={{ mt: 3 }}
+            style={{
+              color: "#fff",
+            }}
           >
             Don’t have an account?{" "}
             <Link variant="subtitle2" component={RouterLink} to="/signup">
