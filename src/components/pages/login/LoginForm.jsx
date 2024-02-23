@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Link as RouterLink, useLocation, useNavigate } from "react-router-dom";
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
-
+import axios from "axios";
+import { LoadingButton } from "@mui/lab";
 import {
   Box,
   Checkbox,
@@ -34,7 +35,8 @@ const LoginForm = ({ setAuth }) => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
   const LoginSchema = Yup.object().shape({
@@ -51,12 +53,32 @@ const LoginForm = ({ setAuth }) => {
       remember: true,
     },
     validationSchema: LoginSchema,
-    onSubmit: () => {
-      console.log("submitting...");
+    onSubmit: async () => {
+      const { email, password } = formik.values;
+
+      try {
+        // Serialize data to JSON (ensure it's an object)
+        // Create the JSON body:
+        const jsonData = JSON.stringify({ email, password });
+
+        // Set appropriate content type header
+        const headers = { "Content-Type": "application/json" };
+
+        // Send JSON data using a POST request with correct headers
+        const response = await axios.post(
+          "http://localhost:8000/login",
+          jsonData,
+          { headers }
+        );
+        console.log("Response data", response);
+      } catch (error) {
+        console.error("Error sending data:", error);
+      }
       setTimeout(() => {
         console.log("submited!!");
-        setAuth(true);
-        navigate(from, { replace: true });
+        // console.log(email);
+        // setAuth(true);
+        // navigate("/", { replace: true });
       }, 2000);
     },
   });
@@ -132,16 +154,6 @@ const LoginForm = ({ setAuth }) => {
               error={Boolean(touched.email && errors.email)}
               helperText={touched.email && errors.email}
             />
-            {/* <TextField
-              fullWidth
-              autoComplete="username"
-              type="email"
-              label="Email Address"
-              {...getFieldProps("email")}
-              error={Boolean(touched.email && errors.email)}
-              helperText={touched.email && errors.email}
-            /> */}
-
             <TextField
               fullWidth
               autoComplete="current-password"
@@ -184,6 +196,15 @@ const LoginForm = ({ setAuth }) => {
                 ),
               }}
             />
+            <LoadingButton
+              fullWidth
+              size="large"
+              type="submit"
+              variant="contained"
+              loading={isSubmitting}
+            >
+              Login
+            </LoadingButton>
           </Box>
 
           <Box
@@ -217,16 +238,6 @@ const LoginForm = ({ setAuth }) => {
                 Forgot password?
               </Link>
             </Stack>
-
-            {/* <LoadingButton
-              fullWidth
-              size="large"
-              type="submit"
-              variant="contained"
-              loading={isSubmitting}
-            >
-              {isSubmitting ? "loading..." : "Login"}
-            </LoadingButton> */}
           </Box>
         </Box>
       </Form>

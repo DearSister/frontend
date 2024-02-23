@@ -106,7 +106,7 @@ export default function Index() {
     <section id="faqs_section">
       <div
         style={{
-          backgroundColor: "#02023D",
+          backgroundColor: "#0d0d29",
           align: "center",
           paddingBottom: "1vh",
           // width: "100vw",

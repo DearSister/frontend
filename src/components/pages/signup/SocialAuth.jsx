@@ -12,7 +12,7 @@ import {
 import { LoadingButton } from "@mui/lab";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
-
+import axios from "axios";
 /////////////////////////////////////////////////////////////
 let easing = [0.6, -0.05, 0.01, 0.99];
 const animate = {
@@ -25,11 +25,11 @@ const animate = {
   },
 };
 
-const SignupForm = ({ setAuth }) => {
+const SignupForm = () => {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
-
+  const [auth, setAuth] = useState(false);
   const SignupSchema = Yup.object().shape({
     firstName: Yup.string()
       .min(2, "Too Short!")
@@ -53,10 +53,36 @@ const SignupForm = ({ setAuth }) => {
       password: "",
     },
     validationSchema: SignupSchema,
-    onSubmit: () => {
+    onSubmit: async () => {
+      // console.log(firstName);
+      try {
+        const { firstName, lastName, email, password } = formik.values;
+        // Serialize data to JSON (ensure it's an object)
+        // Create the JSON body:
+        const jsonData = JSON.stringify({
+          firstName,
+          lastName,
+          email,
+          password,
+        });
+
+        // Set appropriate content type header
+        const headers = { "Content-Type": "application/json" };
+        console.log(jsonData);
+        // Send JSON data using a POST request with correct headers
+        const response = await axios.post(
+          "http://localhost:8000/signup",
+          jsonData,
+          { headers }
+        );
+        console.log("Response data", response);
+      } catch (error) {
+        console.error("Error sending data:", error);
+      }
       setTimeout(() => {
         setAuth(true);
-        navigate("/", { replace: true });
+
+        // navigate("/", { replace: true });
       }, 2000);
     },
   });
@@ -169,6 +195,9 @@ const SignupForm = ({ setAuth }) => {
               autoComplete="current-password"
               type={showPassword ? "text" : "password"}
               label="Password"
+              {...getFieldProps("password")}
+              error={Boolean(touched.password && errors.password)}
+              helperText={touched.password && errors.password}
               InputLabelProps={{ style: { color: "white" } }}
               InputProps={{
                 style: {
@@ -187,27 +216,21 @@ const SignupForm = ({ setAuth }) => {
                     },
                   },
                 },
-              }}
-              {...getFieldProps("password")}
-              InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
                     <IconButton
-                      edge="end"
                       onClick={() => setShowPassword((prev) => !prev)}
                       style={{ color: "white" }}
                     >
-                      <Icon
-                        icon={
-                          showPassword ? "eva:eye-fill" : "eva:eye-off-fill"
-                        }
-                      />
+                      {showPassword ? (
+                        <Icon icon="eva:eye-fill" />
+                      ) : (
+                        <Icon icon="eva:eye-off-fill" />
+                      )}
                     </IconButton>
                   </InputAdornment>
                 ),
               }}
-              error={Boolean(touched.password && errors.password)}
-              helperText={touched.password && errors.password}
             />
           </Stack>
 

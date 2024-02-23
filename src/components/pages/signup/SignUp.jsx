@@ -12,6 +12,7 @@ import {
 import { LoadingButton } from "@mui/lab";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
+import axios from "axios";
 
 /////////////////////////////////////////////////////////////
 let easing = [0.6, -0.05, 0.01, 0.99];
@@ -53,10 +54,12 @@ const SignupForm = ({ setAuth }) => {
       password: "",
     },
     validationSchema: SignupSchema,
-    onSubmit: () => {
+
+    onSubmit: async () => {
+     
       setTimeout(() => {
         setAuth(true);
-        navigate("/", { replace: true });
+        // navigate("/", { replace: true });
       }, 2000);
     },
   });

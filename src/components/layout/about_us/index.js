@@ -104,7 +104,7 @@ export default function index() {
     <section id="about_section">
       <Grid
         style={{
-          backgroundColor: "#02023D",
+          backgroundColor: "#0d0d29",
           align: "center",
         }}
         container

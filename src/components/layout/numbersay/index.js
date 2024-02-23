@@ -168,7 +168,7 @@ const UseStyles = makeStyles((theme) => ({
       fontWeight: "1000",
     },
     [theme.breakpoints.up("md")]: {
-      fontSize: "3rem",
+      fontSize: "2rem",
     },
     [theme.breakpoints.up("lg")]: {
       fontSize: "2rem",
@@ -196,7 +196,7 @@ const Counter = ({ end }) => {
           setFollower(0);
         }
       },
-      { threshold: 0.00001 }
+      { threshold: 1 }
     );
 
     observer.observe(targetRef.current);
@@ -209,10 +209,10 @@ const Counter = ({ end }) => {
   useEffect(() => {
     if (isCounting) {
       let interval = setInterval(() => {
-        setCount((prevCount) => prevCount + 1000);
-        setViews((prevCount) => prevCount + 80000);
-        setFollower((prevcount) => prevcount + 200);
-      }, 0.0001);
+        setCount((prevCount) => prevCount + 11);
+        setViews((prevCount) => prevCount + 2);
+        setFollower((prevcount) => prevcount + 2);
+      }, 1);
       if (views === end) {
         clearInterval(interval);
       }
@@ -223,7 +223,7 @@ const Counter = ({ end }) => {
   return (
     <div
       style={{
-        backgroundColor: "#02023D",
+        backgroundColor: "#0d0d29",
         align: "center",
       }}
       ref={targetRef}
@@ -254,7 +254,7 @@ const Counter = ({ end }) => {
               </Avatar>
             </div>
             <div>
-              <Typography className={classes.gridtext}>{count} +</Typography>{" "}
+              <Typography className={classes.gridtext}>{count} K+</Typography>{" "}
               <Typography className={classes.gridtext1}>Subscribers</Typography>
             </div>
           </Grid>
@@ -269,7 +269,7 @@ const Counter = ({ end }) => {
               </Avatar>
             </div>
             <div>
-              <Typography className={classes.gridtext}>{views} +</Typography>{" "}
+              <Typography className={classes.gridtext}>{views} M+</Typography>{" "}
               <Typography className={classes.gridtext1}>Views</Typography>
             </div>
           </Grid>
@@ -283,7 +283,9 @@ const Counter = ({ end }) => {
               </Avatar>
             </div>
             <div>
-              <Typography className={classes.gridtext}>{follower} +</Typography>{" "}
+              <Typography className={classes.gridtext}>
+                {follower} K+
+              </Typography>{" "}
               <Typography className={classes.gridtext1}>Followers</Typography>
             </div>
           </Grid>
@@ -295,7 +297,7 @@ const Counter = ({ end }) => {
 const GridCounter = () => {
   return (
     <div>
-      <Counter key={1} end={10000 * 4400} />
+      <Counter key={1} end={100 * 1} />
     </div>
   );
 };
