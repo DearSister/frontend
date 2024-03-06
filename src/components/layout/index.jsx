@@ -11,6 +11,7 @@ import Faqs from "../layout/faqs/index";
 import Footer from "../layout/footer/index";
 import Login from "../pages/login/index";
 import SignUp from "../pages/signup/Signup";
+import User from "../layout/user/index.js";
 //<--------------------------------------------------------->
 export default function Layout() {
   return (
@@ -45,6 +46,17 @@ export default function Layout() {
             <>
               <Navbar />
               <SignUp />
+              <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/user"
+          element={
+            <>
+              {/* <Navbar /> */}
+              {/* <SignUp /> */}
+              <User />
               <Footer />
             </>
           }

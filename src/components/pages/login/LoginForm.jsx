@@ -70,6 +70,10 @@ const LoginForm = ({ setAuth }) => {
           jsonData,
           { headers }
         );
+
+        document.cookie = `token=${response.data.token}; Secure`;
+
+        localStorage.setItem("jwt", response.data.token);
         console.log("Response data", response);
       } catch (error) {
         console.error("Error sending data:", error);
@@ -78,7 +82,7 @@ const LoginForm = ({ setAuth }) => {
         console.log("submited!!");
         // console.log(email);
         // setAuth(true);
-        // navigate("/", { replace: true });
+        navigate("/", { replace: true });
       }, 2000);
     },
   });
