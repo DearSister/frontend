@@ -3,7 +3,7 @@ import "./User.css";
 import User_Header from "./User_Header";
 import User_Sidebar from "./User_Sidebar";
 import User_Home from "./User_Home";
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
@@ -13,13 +13,15 @@ function App() {
 
   return (
     <div className="grid-container">
+    <>
       <User_Header OpenSidebar={OpenSidebar} />
       <User_Sidebar
         openSidebarToggle={openSidebarToggle}
         OpenSidebar={OpenSidebar}
       />
       <User_Home />
-    </div>
+    </>
+   </div> 
   );
 }
 

@@ -36,7 +36,7 @@ function User_Sidebar({ openSidebarToggle, OpenSidebar }) {
 
       <ul className="sidebar-list">
         <li className="sidebar-list-item">
-          <a href="#" style={{ display: "flex", alignItems: "center" }}>
+          <a href="/user" style={{ display: "flex", alignItems: "center" }}>
             <BsGrid1X2Fill className="icon" />
             <span style={{ marginLeft: 10 }}>Dashboard</span>
           </a>
@@ -56,7 +56,7 @@ function User_Sidebar({ openSidebarToggle, OpenSidebar }) {
         </li>
         <li className="sidebar-list-item">
           <a
-            href="/leaderbaord"
+            href="/leaderboard"
             style={{ display: "flex", alignItems: "center" }}
           >
             <BsPeopleFill className="icon" />

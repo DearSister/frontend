@@ -22,53 +22,12 @@ import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
 import { Award } from "react-award";
 import "react-award/dist/react-award.css";
+
+import img1 from "../../../assests/User_dashboard/digital-marketing.png";
+import img2 from "../../../assests/User_dashboard/elearning.png";
+import img3 from "../../../assests/User_dashboard/student.png";
 /* Inventory Card  */
 function User_Home() {
-  // const data = [
-  //   {
-  //     name: "Page A",
-  //     uv: 4000,
-  //     pv: 2400,
-  //     amt: 2400,
-  //   },
-  //   {
-  //     name: "Page B",
-  //     uv: 3000,
-  //     pv: 1398,
-  //     amt: 2210,
-  //   },
-  //   {
-  //     name: "Page C",
-  //     uv: 2000,
-  //     pv: 9800,
-  //     amt: 2290,
-  //   },
-  //   {
-  //     name: "Page D",
-  //     uv: 2780,
-  //     pv: 3908,
-  //     amt: 2000,
-  //   },
-  //   {
-  //     name: "Page E",
-  //     uv: 1890,
-  //     pv: 4800,
-  //     amt: 2181,
-  //   },
-  //   {
-  //     name: "Page F",
-  //     uv: 2390,
-  //     pv: 3800,
-  //     amt: 2500,
-  //   },
-  //   {
-  //     name: "Page G",
-  //     uv: 3490,
-  //     pv: 4300,
-  //     amt: 2100,
-  //   },
-  // ];
-
   return (
     <main className="main-container">
       <div className="main-title">
@@ -82,12 +41,9 @@ function User_Home() {
               style={{
                 fontSize: "2em",
                 fontWeight: "bold",
-                // color: "red",
                 marginLeft: 10,
               }}
-            >
-              R
-            </PersonPinIcon>
+            ></PersonPinIcon>
             <h1
               style={{
                 fontSize: "2em",
@@ -114,7 +70,14 @@ function User_Home() {
               style={{
                 display: "flex",
                 alignItems: "center",
-                marginBottom: "5px",
+                marginBottom: "10px",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
               }}
             >
               <CrisisAlertIcon
@@ -137,6 +100,13 @@ function User_Home() {
                 display: "flex",
                 marginBottom: "5px",
                 alignItems: "center",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
               }}
             >
               <FlagIcon
@@ -158,6 +128,13 @@ function User_Home() {
               style={{
                 display: "flex",
                 alignItems: "center",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
               }}
             >
               <FluorescentIcon
@@ -224,7 +201,26 @@ function User_Home() {
                 textAlign: "center",
                 maxWidth: "30%",
                 marginTop: "20px",
+                // backgroundColor: "#211F1E",
                 marginBottom: "20px",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
+
+                "@keyframes cardAppear": {
+                  from: {
+                    opacity: 0,
+                    transform: "translateY(20px)", // Slide up from bottom on appearance
+                  },
+                  to: {
+                    opacity: 1,
+                    transform: "translateY(0)", // Reset transform after animation
+                  },
+                },
                 "@media (max-width: 768px)": {
                   // Target screens below 768px (adjust as needed)
                   maxWidth: "90%", // Set full width for mobile
@@ -232,13 +228,17 @@ function User_Home() {
                   marginBottom: "20px", // Adjust margin for mobile
                 },
               }}
-              style={{ marginLeft: 10, flex: "1 1" }}
+              style={{
+                marginLeft: 10,
+                flex: "1 1",
+                // backgroundColor: "#060d1c",
+              }}
             >
               <CardContent sx={{ gap: 1.5 }}>
                 <AspectRatio rratio="10/8" objectFit="contain" variant="plain">
                   <img
-                    alt=""
-                    src="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
+                    src={img1}
+                    alt="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
                   />
                 </AspectRatio>
                 <CardContent style={{ marginTop: 20 }}>
@@ -259,7 +259,26 @@ function User_Home() {
                 textAlign: "center",
                 maxWidth: "30%",
                 marginTop: "20px",
+                // backgroundColor: "#211F1E",
                 marginBottom: "20px",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
+
+                "@keyframes cardAppear": {
+                  from: {
+                    opacity: 0,
+                    transform: "translateY(20px)", // Slide up from bottom on appearance
+                  },
+                  to: {
+                    opacity: 1,
+                    transform: "translateY(0)", // Reset transform after animation
+                  },
+                },
                 "@media (max-width: 768px)": {
                   // Target screens below 768px (adjust as needed)
                   maxWidth: "90%", // Set full width for mobile
@@ -267,14 +286,17 @@ function User_Home() {
                   marginBottom: "20px", // Adjust margin for mobile
                 },
               }}
-              style={{ marginLeft: 10, flex: "1 1 300px" }}
+              style={{
+                marginLeft: 10,
+                flex: "1 1",
+                // backgroundColor: "#060d1c",
+              }}
             >
               <CardContent sx={{ gap: 1.5 }}>
                 <AspectRatio ratio="10/8" objectFit="contain" variant="plain">
                   <img
-                    alt=""
-                    src="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
-                    // style={{ width: "100%", height: "100%" }}
+                    src={img2}
+                    alt="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
                   />
                 </AspectRatio>
                 <CardContent style={{ marginTop: 20 }}>
@@ -288,12 +310,31 @@ function User_Home() {
             <Card
               size="lg"
               variant="plain"
-              // orientation="horizontal"
+              orientation="horizontal"
               sx={{
                 textAlign: "center",
                 maxWidth: "30%",
                 marginTop: "20px",
+                // backgroundColor: "#211F1E",
                 marginBottom: "20px",
+                borderRadius: 10, // Add border radius for shadow effect
+                boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+                transition: "transform 0.3s ease-in-out", // Animate card appearance
+                animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+                "&:hover": {
+                  transform: "scale(1.02)", // Slight scale on hover for visual feedback
+                },
+
+                "@keyframes cardAppear": {
+                  from: {
+                    opacity: 0,
+                    transform: "translateY(20px)", // Slide up from bottom on appearance
+                  },
+                  to: {
+                    opacity: 1,
+                    transform: "translateY(0)", // Reset transform after animation
+                  },
+                },
                 "@media (max-width: 768px)": {
                   // Target screens below 768px (adjust as needed)
                   maxWidth: "90%", // Set full width for mobile
@@ -301,13 +342,17 @@ function User_Home() {
                   marginBottom: "20px", // Adjust margin for mobile
                 },
               }}
-              style={{ marginLeft: 10, flex: "1 1 300px" }}
+              style={{
+                marginLeft: 10,
+                flex: "1 1",
+                // backgroundColor: "#060d1c",
+              }}
             >
               <CardContent sx={{ gap: 1.5 }}>
                 <AspectRatio ratio="13/8" objectFit="contain" variant="plain">
                   <img
-                    alt=""
-                    src="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
+                    src={img3}
+                    alt="https://static.vecteezy.com/system/resources/previews/006/409/485/original/people-thinking-to-make-decision-problem-solving-and-find-creative-ideas-with-question-mark-in-flat-cartoon-background-for-poster-illustration-vector.jpg"
                   />
                 </AspectRatio>
                 <CardContent>
@@ -361,7 +406,26 @@ function User_Home() {
               textAlign: "center",
               maxWidth: "30%",
               marginTop: "20px",
+              // backgroundColor: "#211F1E",
               marginBottom: "20px",
+              borderRadius: 10, // Add border radius for shadow effect
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+              transition: "transform 0.3s ease-in-out", // Animate card appearance
+              animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+              "&:hover": {
+                transform: "scale(1.02)", // Slight scale on hover for visual feedback
+              },
+
+              "@keyframes cardAppear": {
+                from: {
+                  opacity: 0,
+                  transform: "translateY(20px)", // Slide up from bottom on appearance
+                },
+                to: {
+                  opacity: 1,
+                  transform: "translateY(0)", // Reset transform after animation
+                },
+              },
               "@media (max-width: 768px)": {
                 // Target screens below 768px (adjust as needed)
                 maxWidth: "90%", // Set full width for mobile
@@ -369,7 +433,11 @@ function User_Home() {
                 marginBottom: "20px", // Adjust margin for mobile
               },
             }}
-            style={{ marginLeft: 10, flex: "1 1 300px" }}
+            style={{
+              marginLeft: 10,
+              flex: "1 1",
+              // backgroundColor: "#060d1c",
+            }}
           >
             <CardContent sx={{ gap: 1.5 }}>
               <AspectRatio ratio="10/8" objectFit="contain" variant="plain">

@@ -1,4 +1,4 @@
-import React from "react";
+import { React, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // <--------------------Importing Components---------------->
@@ -12,8 +12,22 @@ import Footer from "../layout/footer/index";
 import Login from "../pages/login/index";
 import SignUp from "../pages/signup/Signup";
 import User from "../layout/user/index.js";
+
+// USer DashBoard
+import User_Header from "./user/User_Header.jsx";
+import User_Sidebar from "./user/User_Sidebar.jsx";
+import User_Home from "./user/User_Home.jsx";
+import User_leader from "./user/Leadershipboard/index.js";
+import User_Report from "./user/Reports/index.js";
+import User_Quiz from "./user/Quizes/index.js";
 //<--------------------------------------------------------->
+
 export default function Layout() {
+  const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
+
+  const OpenSidebar = () => {
+    setOpenSidebarToggle(!openSidebarToggle);
+  };
   return (
     <BrowserRouter>
       <Routes>
@@ -54,10 +68,75 @@ export default function Layout() {
           path="/user"
           element={
             <>
-              {/* <Navbar /> */}
-              {/* <SignUp /> */}
-              <User />
+              <div className="grid-container">
+                <>
+                  <User_Header OpenSidebar={OpenSidebar} />
+                  <User_Sidebar
+                    openSidebarToggle={openSidebarToggle}
+                    OpenSidebar={OpenSidebar}
+                  />
+                  <User_Home />
+                </>
+              </div>
               <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/leaderboard"
+          element={
+            <>
+              <div className="grid-container">
+                <>
+                  <User_Header OpenSidebar={OpenSidebar} />
+                  <User_Sidebar
+                    openSidebarToggle={openSidebarToggle}
+                    OpenSidebar={OpenSidebar}
+                  />
+                  <User_leader />
+                  {/* <User_Home /> */}
+                </>
+              </div>
+              <Footer />
+            </>
+          }
+        ></Route>{" "}
+        <Route
+          path="/report"
+          element={
+            <>
+              <div className="grid-container">
+                <>
+                  <User_Header OpenSidebar={OpenSidebar} />
+                  <User_Sidebar
+                    openSidebarToggle={openSidebarToggle}
+                    OpenSidebar={OpenSidebar}
+                  />
+                  <User_Report />
+                  {/* <User_Home /> */}
+                </>
+              </div>
+              <Footer />
+            </>
+          }
+        ></Route>
+        <Route
+          path="/quiz"
+          element={
+            <>
+              <div className="grid-container">
+                <>
+                  <User_Header OpenSidebar={OpenSidebar} />
+                  <User_Sidebar
+                    openSidebarToggle={openSidebarToggle}
+                    OpenSidebar={OpenSidebar}
+                  />
+                  <User_Quiz />
+                  {/* <User_Home /> */}
+                </>{" "}
+              </div>
+              <Footer />
+              {/* <Footer /> */}
             </>
           }
         ></Route>
