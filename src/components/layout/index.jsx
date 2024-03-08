@@ -22,6 +22,9 @@ import User_Report from "./user/Reports/index.js";
 import User_Quiz from "./user/Quizes/index.js";
 //<--------------------------------------------------------->
 
+// Live Quiz
+import LiveQUiz from "./user/LiveQuiz/QuizUI/index.js";
+
 export default function Layout() {
   const [openSidebarToggle, setOpenSidebarToggle] = useState(false);
 
@@ -137,6 +140,17 @@ export default function Layout() {
               </div>
               <Footer />
               {/* <Footer /> */}
+            </>
+          }
+        ></Route>
+        <Route
+          path="/livequiz"
+          element={
+            <>
+              <User_Header OpenSidebar={OpenSidebar} />
+              <LiveQUiz />
+              <></>
+              <div className="grid-container"></div>
             </>
           }
         ></Route>
