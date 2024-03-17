@@ -1,33 +1,93 @@
-import React from "react";
-import {
-  BsFillArchiveFill,
-  BsFillGrid3X3GapFill,
-  BsPeopleFill,
-  BsFillBellFill,
-} from "react-icons/bs";
+import { React, useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+// import  from "react";
+// import {
+//   BsFillArchiveFill,
+//   BsFillGrid3X3GapFill,
+//   BsPeopleFill,
+//   BsFillBellFill,
+// } from "react-icons/bs";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
-import Avatar from "@mui/material/Avatar";
+// import Avatar from "@mui/material/Avatar";
 import FlagIcon from "@mui/icons-material/Flag";
 import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 import FluorescentIcon from "@mui/icons-material/Fluorescent";
 import InventoryIcon from "@mui/icons-material/Inventory";
-import Invent_Card from "./Invent_Card";
+// import Invent_Card from "./Invent_Card";
 // import * as React from "react";
 import AspectRatio from "@mui/joy/AspectRatio";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
 import Button from "@mui/joy/Button";
 import Card from "@mui/joy/Card";
 import CardContent from "@mui/joy/CardContent";
-import CardOverflow from "@mui/joy/CardOverflow";
+// import CardOverflow from "@mui/joy/CardOverflow";
 import Typography from "@mui/joy/Typography";
-import { Award } from "react-award";
+// import { Award } from "react-award";
 import "react-award/dist/react-award.css";
 
 import img1 from "../../../assests/User_dashboard/digital-marketing.png";
 import img2 from "../../../assests/User_dashboard/elearning.png";
 import img3 from "../../../assests/User_dashboard/student.png";
 /* Inventory Card  */
+
 function User_Home() {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+  /*      Routes      */
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  async function checkCookie() {
+    const cookie = document.cookie.split(";").find((c) => c.startsWith("jwt="));
+    if (cookie) {
+      try {
+        console.log("Cookie", cookie);
+
+        // Replace with your actual server address
+        const url = "http://localhost:8000/user";
+
+        const fetchOptions = {
+          method: "GET",
+          credentials: "include", // Include cookies in the request
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const response = await fetch(url, fetchOptions); // Await the response
+
+        // Check for successful response (status code 200-299)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseData = await response.json(); // Parse JSON response data
+        setUserData(responseData);
+        // console.log(responseData);
+        console.log("Response data:", userData);
+
+        // Handle successful authentication (e.g., set state or redirect)
+        // ... your logic here
+      } catch (error) {
+        console.error("Error verifying cookie:", error);
+        // Redirect to login on error
+        navigate("/login", { replace: true });
+      }
+    } else {
+      console.log("Cookie not there");
+      navigate("/login", { replace: true });
+    }
+  }
+
+  // Call checkCookie on component mount
+  useEffect(() => {
+    checkCookie();
+  }, []);
+
+  // if (!isAuthenticated) {
+  // <Navigate to="/login" replace />; // Redirect to login if not authenticated
+  // }
+
+  // return children;
+
   return (
     <main className="main-container">
       <div className="main-title">
@@ -44,6 +104,7 @@ function User_Home() {
                 marginLeft: 10,
               }}
             ></PersonPinIcon>
+
             <h1
               style={{
                 fontSize: "2em",
@@ -52,7 +113,7 @@ function User_Home() {
                 marginLeft: 10,
               }}
             >
-              Full Name
+              {userData.fullName}
             </h1>
           </div>
           <div
@@ -92,7 +153,7 @@ function User_Home() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.quizPoints}
               </span>
             </div>{" "}
             <div
@@ -121,7 +182,7 @@ function User_Home() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.highestScore}
               </span>
             </div>{" "}
             <div
@@ -149,7 +210,7 @@ function User_Home() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.correctAnswers}
               </span>
             </div>
           </div>
@@ -246,7 +307,7 @@ function User_Home() {
                     Total Quizes Happened
                   </Typography>
                   <Typography fontSize="lg" fontWeight="bold" sx={{ mt: 0.5 }}>
-                    32
+                    {userData.totalquiz}
                   </Typography>
                 </CardContent>
               </CardContent>
@@ -302,7 +363,7 @@ function User_Home() {
                 <CardContent style={{ marginTop: 20 }}>
                   <Typography level="title-lg">Completed Quiz</Typography>
                   <Typography fontSize="lg" fontWeight="bold" sx={{ mt: 0.5 }}>
-                    32
+                    {userData.attemptquiz}
                   </Typography>
                 </CardContent>
               </CardContent>
@@ -358,7 +419,7 @@ function User_Home() {
                 <CardContent>
                   <Typography level="title-lg">Incomplete Quiz</Typography>
                   <Typography fontSize="lg" fontWeight="bold" sx={{ mt: 0.5 }}>
-                    32
+                    {userData.totalquiz - userData.attemptquiz}
                   </Typography>
                 </CardContent>
                 <Button

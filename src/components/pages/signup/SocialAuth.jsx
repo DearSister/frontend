@@ -13,6 +13,7 @@ import { LoadingButton } from "@mui/lab";
 import { Icon } from "@iconify/react";
 import { motion } from "framer-motion";
 import axios from "axios";
+import Cookies from "js-cookie";
 /////////////////////////////////////////////////////////////
 let easing = [0.6, -0.05, 0.01, 0.99];
 const animate = {
@@ -52,7 +53,7 @@ const SignupForm = () => {
       email: "",
       password: "",
     },
-    validationSchema: SignupSchema,
+    // validationSchema: SignupSchema,
     onSubmit: async () => {
       // console.log(firstName);
       try {
@@ -65,24 +66,43 @@ const SignupForm = () => {
           email,
           password,
         });
+        const url = "http://localhost:8000/signup";
 
+        const fetchOptions = {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: jsonData,
+        };
+
+        fetch(url, fetchOptions)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json(); // Assuming the response is also JSON
+          })
+          .then((responseData) => {
+            console.log("Response data:", responseData);
+            console.log(Cookies.get("jwt"));
+            // if successful, consider redirecting:
+            // window.location.href = "/"; // Or use a navigation library
+          })
+          .catch((error) => {
+            console.error("Error sending data:", error);
+          });
         // Set appropriate content type header
-        const headers = { "Content-Type": "application/json" };
-        console.log(jsonData);
-        // Send JSON data using a POST request with correct headers
-        const response = await axios.post(
-          "http://localhost:8000/signup",
-          jsonData,
-          { headers }
-        );
-        console.log("Response data", response);
-      } catch (error) {
-        console.error("Error sending data:", error);
+      } catch (e) {
+        console.log("jjj");
       }
+
       setTimeout(() => {
         setAuth(true);
-
-        // navigate("/", { replace: true });
+        console.log("Ayas");
+        // console.log(jwtToken);
+        // navigate("/user", { replace: true });
       }, 2000);
     },
   });

@@ -79,13 +79,25 @@ function App() {
   const [isFinished, setIsFinished] = useState(false);
   const [userAnswers, setUserAnswers] = useState([]);
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (timeLeft > 0 && !isFinished) {
-        setTimeLeft(timeLeft - 1);
-      } else if (timeLeft === 0 && !isFinished) {
-        handleNextQuestion(true); // Move to next question if time runs out
-      }
-    }, 1000);
+    const timer = setInterval(
+      () => {
+        if (timeLeft > 0 && !isFinished) {
+          setTimeLeft(timeLeft - 1);
+        } else if (timeLeft === 0 && !isFinished) {
+          handleNextQuestion(true); // Move to next question if time runs out
+        }
+
+        if (isFinished) {
+          const timeoutId = setTimeout(() => {
+            window.location.href = "/user"; // Redirect to /user after 30 seconds
+          }, 30000);
+
+          return () => clearTimeout(timeoutId); // Cleanup effect
+        }
+      },
+      1000,
+      [isFinished]
+    );
 
     return () => clearInterval(timer);
   }, [timeLeft, isFinished]);
@@ -230,7 +242,13 @@ function App() {
             <li>Incorrect Answers: {questions.length - correctAnswers}</li>
             <li>Total Attempts: {questions.length}</li>
           </ul>
-          <button onClick={() => window.location.reload()}>Restart Quiz</button>
+          <button
+            onClick={() => {
+              window.location.href = "/user";
+            }}
+          >
+            Home
+          </button>
           {isFinished && (
             <button onClick={saveResultsToPDF}>Download Results PDF</button>
           )}

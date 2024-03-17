@@ -56,7 +56,6 @@ const SignupForm = ({ setAuth }) => {
     validationSchema: SignupSchema,
 
     onSubmit: async () => {
-     
       setTimeout(() => {
         setAuth(true);
         // navigate("/", { replace: true });

@@ -1,12 +1,65 @@
-import React from "react";
+import { React, useState, useEffect } from "react";
 import FlagIcon from "@mui/icons-material/Flag";
 import CrisisAlertIcon from "@mui/icons-material/CrisisAlert";
 import FluorescentIcon from "@mui/icons-material/Fluorescent";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import PersonPinIcon from "@mui/icons-material/PersonPin";
+import { useNavigate } from "react-router-dom";
+// import { useEffect } from "react";
 
 /* Inventory Card  */
 function User_Report() {
+  const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+  /*      Routes      */
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  async function checkCookie() {
+    const cookie = document.cookie.split(";").find((c) => c.startsWith("jwt="));
+    if (cookie) {
+      try {
+        console.log("Cookie", cookie);
+
+        // Replace with your actual server address
+        const url = "http://localhost:8000/user";
+
+        const fetchOptions = {
+          method: "GET",
+          credentials: "include", // Include cookies in the request
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+
+        const response = await fetch(url, fetchOptions); // Await the response
+
+        // Check for successful response (status code 200-299)
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const responseData = await response.json(); // Parse JSON response data
+        setUserData(responseData);
+        // console.log(responseData);
+        console.log("Response data:", userData);
+
+        // Handle successful authentication (e.g., set state or redirect)
+        // ... your logic here
+      } catch (error) {
+        console.error("Error verifying cookie:", error);
+        // Redirect to login on error
+        navigate("/login", { replace: true });
+      }
+    } else {
+      console.log("Cookie not there");
+      navigate("/login", { replace: true });
+    }
+  }
+
+  // Call checkCookie on component mount
+  useEffect(() => {
+    checkCookie();
+  }, []);
+
   return (
     <main className="main-container">
       <div className="main-title">
@@ -31,7 +84,7 @@ function User_Report() {
                 marginLeft: 10,
               }}
             >
-              Full Name
+              {userData.fullName}
             </h1>
           </div>
           <div
@@ -71,7 +124,7 @@ function User_Report() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.quizPoints}
               </span>
             </div>{" "}
             <div
@@ -100,7 +153,7 @@ function User_Report() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.highestScore}
               </span>
             </div>{" "}
             <div
@@ -128,7 +181,7 @@ function User_Report() {
               <span
                 style={{ marginLeft: 10, fontSize: "2em", fontWeight: "bold" }}
               >
-                1
+                {userData.correctAnswers}
               </span>
             </div>
           </div>
