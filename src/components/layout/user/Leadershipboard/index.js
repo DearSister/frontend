@@ -21,28 +21,28 @@ const User_Leader = (props) => {
   //   const [scores, setScores] = useState();
   const scores = [
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Shubam",
+      score: "550",
     },
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Sahil",
+      score: "434",
     },
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Fatima",
+      score: "441",
     },
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Arif",
+      score: "344",
     },
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Kushboo",
+      score: "244",
     },
     {
-      contributor: "sss",
-      score: "44",
+      contributor: "Amit",
+      score: "244",
     },
   ];
   //   useEffect(() => {

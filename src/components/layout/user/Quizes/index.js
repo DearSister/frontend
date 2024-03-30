@@ -4,24 +4,28 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
-import ImageIcon from "@mui/icons-material/Image";
 import ContentPasteGoIcon from "@mui/icons-material/ContentPasteGo";
 import Button from "@mui/material/Button";
-import { FixedSizeList } from "react-window";
-import Box from "@mui/material/Box";
 import { useNavigate } from "react-router-dom";
 export default function FolderList() {
-  const [attempted, setAttempted] = useState(Array(20).fill(false)); // Track attempted quizzes
+  // const [attempted, setAttempted] = useState(Array(20).fill(false)); // Track attempted quizzes
+
+  const [attempted, setAttempted] = useState([]); // Track attempted quizzes
+  const [notAttemptedQuizzes, setNotAttemptedQuizzes] = useState([]); // Track not attempted quizzes
+  const [notAttemptQuiz, setNotAttemptQuiz] = useState(0);
+  // const attempted = ["1", "2", "3", "4", "5", "67"];
   const navigate = useNavigate();
   const handleAttemptClick = (index) => {
-    setAttempted((prevAttempted) => {
-      const newAttempted = [...prevAttempted];
-      newAttempted[index] = true;
-      return newAttempted;
-    });
+    console.log("QuizId", index);
+    // setAttempted((prevAttempted) => {
+    //   const newAttempted = [...prevAttempted];
+    //   newAttempted[index] = true;
+    //   return newAttempted;
+    // });
+    navigate(`/livequiz/${index}`, { replace: true });
+    // Navigate with replace=true
   };
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [notAttemptQuiz, setNotAttemptQuiz] = useState(0);
+
   async function QuizData() {
     const cookie = document.cookie.split(";").find((c) => c.startsWith("jwt="));
     if (cookie) {
@@ -49,9 +53,14 @@ export default function FolderList() {
         const responseData = await response.json(); // Parse JSON response data
         // setUserData(responseData);
         console.log(responseData);
+        // setAttempted(responseData.attemptedQuizzes);
+        setNotAttemptedQuizzes(responseData.notAttemptedQuizzes);
+        setAttempted(responseData.attemptedQuizzes);
+        // Number for header to show
         setNotAttemptQuiz(responseData.notAttemptedQuizzes.length);
         // console.log("Response data:", userData);
-
+        console.log("Attempt", attempted);
+        console.log("NotAttempt", notAttemptedQuizzes);
         // Handle successful authentication (e.g., set state or redirect)
         // ... your logic here
       } catch (error) {
@@ -64,6 +73,7 @@ export default function FolderList() {
       navigate("/login", { replace: true });
     }
   }
+  //
 
   // Call checkCookie on component mount
   useEffect(() => {
@@ -83,7 +93,6 @@ export default function FolderList() {
         marginTop: 5,
       }}
     >
-      {" "}
       <>
         <ListItem
           sx={{
@@ -117,7 +126,83 @@ export default function FolderList() {
         </ListItem>
       </>
       <div style={{ height: "90vh", overflowY: "scroll" }}>
-        {Array.from({ length: 17 }, (_, index) => (
+        {/* Render Not Attempted quizzes */}
+        {notAttemptedQuizzes.map((quizId, index) => (
+          // {console.log("Index ",index);}
+          <ListItem
+            key={quizId}
+            sx={{
+              borderRadius: 10, // Add border radius for shadow effect
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+              transition: "transform 0.3s ease-in-out", // Animate card appearance
+              animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+              marginTop: 1,
+              "&:hover": {
+                transform: "scale(1.02)", // Slight scale on hover for visual feedback
+              },
+              backgroundColor: "white", // Set background color based on attempted state
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <ContentPasteGoIcon />
+              </Avatar>
+            </ListItemAvatar>{" "}
+            <ListItemText
+              primary={`Quiz ${quizId}`}
+              // secondary={attempted[index] ? "Attempted" : "Not attempted"}
+            >
+              {/* "Not attempted" */}
+              {/* {attempted[index] ? "Not attempted" : " "} */}
+            </ListItemText>
+            {/* ... your ListItem content */}
+            <Button
+              variant="contained"
+              onClick={() => handleAttemptClick(quizId)} // Pass quizId to handleAttemptClick
+            >
+              Attempt
+            </Button>
+          </ListItem>
+        ))}
+
+        {attempted.map((quizId, index) => (
+          // {console.log("Index ",index);}
+          <ListItem
+            key={quizId}
+            sx={{
+              borderRadius: 10, // Add border radius for shadow effect
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.2)", // Box shadow for subtle depth
+              transition: "transform 0.3s ease-in-out", // Animate card appearance
+              animation: "$cardAppear 1s ease-in-out forwards", // Animation for card appearance
+              marginTop: 1,
+              "&:hover": {
+                transform: "scale(1.02)", // Slight scale on hover for visual feedback
+              },
+              backgroundColor: "blue", // Set background color based on attempted state
+            }}
+          >
+            <ListItemAvatar>
+              <Avatar>
+                <ContentPasteGoIcon />
+              </Avatar>
+            </ListItemAvatar>{" "}
+            <ListItemText
+              primary={`Quiz ${quizId}`}
+              // secondary={attempted[index] ? "Attempted" : "Not attempted"}
+            >
+              {/* "Not attempted" */}
+              {/* {attempted[index] ? "Not attempted" : " "} */}
+            </ListItemText>
+            {/* ... your ListItem content */}
+            {/* <Button
+              variant="contained"
+              // Pass quizId to handleAttemptClick
+            >
+              Attempted
+            </Button> */}
+          </ListItem>
+        ))}
+        {/* {Array.from({ length: 17 }, (_, index) => (
           <ListItem
             key={index}
             sx={{
@@ -140,10 +225,10 @@ export default function FolderList() {
             <ListItemText
               primary={`Quiz ${index + 1}`}
               secondary={attempted[index] ? "Attempted" : "Not attempted"}
-            >
-              {/* "Not attempted" */}
-              {/* {attempted[index] ? "Not attempted" : " "} */}
-            </ListItemText>
+            > */}
+        {/* "Not attempted" */}
+        {/* {attempted[index] ? "Not attempted" : " "} */}
+        {/* </ListItemText>
             <Button
               variant="contained"
               disabled={attempted[index]} // Disable button if attempted
@@ -152,7 +237,7 @@ export default function FolderList() {
               {attempted[index] ? "Attempted" : "Attempt"}
             </Button>
           </ListItem>
-        ))}
+        ))} */}
       </div>
     </List>
   );

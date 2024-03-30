@@ -144,7 +144,7 @@ export default function Layout() {
           }
         ></Route>
         <Route
-          path="/livequiz"
+          path="/livequiz/:index"
           element={
             <>
               <User_Header OpenSidebar={OpenSidebar} />
