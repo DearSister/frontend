@@ -102,7 +102,7 @@ const SignupForm = () => {
         setAuth(true);
         console.log("Ayas");
         // console.log(jwtToken);
-        // navigate("/user", { replace: true });
+        navigate("/user", { replace: true });
       }, 2000);
     },
   });

@@ -71,7 +71,7 @@ const LoginForm = ({ setAuth }) => {
           { headers }
         );
 
-        document.cookie = `token=${response.data.token}; Secure`;
+        document.cookie = `jwt=${response.data.token}; Secure`;
 
         localStorage.setItem("jwt", response.data.token);
         console.log("Response data", response);
@@ -82,7 +82,7 @@ const LoginForm = ({ setAuth }) => {
         console.log("submited!!");
         // console.log(email);
         // setAuth(true);
-        navigate("/", { replace: true });
+        navigate("/user", { replace: true });
       }, 2000);
     },
   });

@@ -2,12 +2,9 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import jsPDF from "jspdf"; // Correct import using a named import
 import axios from "axios";
-// import hindifont from "../../../../../Fonts/hindiFont.txt";
-// import HindiText from "../../../../../Fonts/HindiText.ttf";
-// import notoSansHindi from "@unicode-emotions/noto-sans-hindi";
-// import React, { useState, useEffect } from "react";
+
 import { useParams, useNavigate } from "react-router-dom";
-// import fs from `fs`;
+
 function App() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -34,16 +31,14 @@ function App() {
       };
 
       const response = await fetch(url, fetchOptions); // Await the response
-      // console.log(response);
 
-      // console.log("questions", ques);
       // Check for successful response (status code 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const responseData = await response.json(); // Parse JSON response data
-      // setUserData(responseData);
+
       console.log(responseData);
       const fetchedQuestions = responseData.questions;
       console.log("FETCHQUESTION", fetchedQuestions);
@@ -125,20 +120,15 @@ function App() {
         prev === questions.length - 1 ? prev : prev + 1
       );
       // Add question, answer, and chosen option to userAnswers
-      const chosenOption =
-        // selectedAnswer !== null
-        //   ? questions[currentQuestion].options[selectedAnswer]
-        //   : null;
-        setUserAnswers((prevAnswers) => [
-          ...prevAnswers,
-          {
-            question: questions[currentQuestion].question,
-            answer: questions[currentQuestion].answer, // Add chosen option or null if not selected
-            choosen: selectedAnswer,
-          },
-        ]);
+      const chosenOption = setUserAnswers((prevAnswers) => [
+        ...prevAnswers,
+        {
+          question: questions[currentQuestion].question,
+          answer: questions[currentQuestion].answer, // Add chosen option or null if not selected
+          choosen: selectedAnswer,
+        },
+      ]);
 
-      // setUserAnswers(questions);
       setSelectedAnswer(null);
       setTimeLeft(30); // Reset timer for next question
     }
@@ -166,18 +156,11 @@ function App() {
       })
       .catch((error) => console.error("Error fetching font data:", error));
 
-    // Read the Base64 encoded font data from the file
-    // const fontBytes = fs.readFileSync("hindiFont.txt", "utf-8");
-
-    // doc.addFileToVFS(font, fontBytes); // fontBytes is the Base64 encoded font data
-    // doc.addFont(fontName, "HindiFont", "normal");
-    // doc.setFont(fontName);
     console.log("font list", doc.getFontList());
     const title = "Quiz Results";
     const fontSize = 12;
     console.log(doc);
-    // Add title
-    // doc.setFontSize(fontSize);
+
     doc.text(title, doc.internal.pageSize.getWidth() / 2, 10, "center");
 
     let y = 15;
