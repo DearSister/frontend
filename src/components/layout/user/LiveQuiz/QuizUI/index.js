@@ -2,79 +2,12 @@ import React, { useState, useEffect } from "react";
 import "./style.css";
 import jsPDF from "jspdf"; // Correct import using a named import
 import axios from "axios";
-import HindiFont from "../../../../../Fonts/fonts.js";
+// import hindifont from "../../../../../Fonts/hindiFont.txt";
+// import HindiText from "../../../../../Fonts/HindiText.ttf";
 // import notoSansHindi from "@unicode-emotions/noto-sans-hindi";
 // import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-// const questions = [
-//   {
-//     question: "What is the capital of France?",
-//     options: ["London", "Paris", "Berlin", "Rome"],
-//     answer: 1, // Index of the correct answer
-//   },
-//   {
-//     question: "adfsasdffsafasdfsadfafsafsda",
-//     options: ["Jupiter", "Mars", "Venus", "Earth"],
-//     answer: 0,
-//   },
-// {
-//   question: "daffdasadfsfafadfaddsfd fdadaffdsa।",
-//   options: [
-//     "When I went there, She kept on sleepingfdasfdsafadjkjadfh fabjdafbkjafsd afjlasdlfjflaj fajhljdfsanlfdaknkl..",
-//     "She slept while I went to her.",
-//     "When I went there, She kepfadsfd a jafdnk jafhjadnflca nfakjfdsal fkadnlfdann t on sleeping.",
-//     "When I went there, She keptfaflajnljasdf jafnljdaflj nljfhl on sleeping.",
-//   ],
-//   answer: 0,
-// },
-// // More examples:
-// {
-//   question: "What is the tallest mountain in the world?",
-//   options: ["Mount Everest", "K2", "Kangchenjunga", "Lhotse"],
-//   answer: 0,
-// },
-// {
-//   question: "What is the chemical symbol for water?",
-//   options: ["H2O", "CO2", "NH3", "NaCl"],
-//   answer: 0,
-// },
-// {
-//   question: "In which year did World War II begin?",
-//   options: ["1939", "1941", "1943", "1945"],
-//   answer: 0,
-// },
-// {
-//   question: "What is the capital of Australia?",
-//   options: ["Melbourne", "Sydney", "Canberra", "Perth"],
-//   answer: 2,
-// },
-// {
-//   question: "What is the name of the largest ocean on Earth?",
-//   options: [
-//     "Pacific Ocean",
-//     "Atlantic Ocean",
-//     "Indian Ocean",
-//     "Arctic Ocean",
-//   ],
-//   answer: 0,
-// },
-// {
-//   question: "Who wrote the novel 'Pride and Prejudice'?",
-//   options: [
-//     "Jane Austen",
-//     "Charlotte Brontë",
-//     "Charles Dickens",
-//     "William Shakespeare",
-//   ],
-//   answer: 0,
-// },
-//   {
-//     question: "What is the currency of Japan?",
-//     options: ["Euro", "Dollar", "Yen", "Yuan"],
-//     answer: 2,
-//   },
-// ];
-
+// import fs from `fs`;
 function App() {
   const [questions, setQuestions] = useState([]);
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -216,10 +149,29 @@ function App() {
   };
   const saveResultsToPDF = async () => {
     const doc = new jsPDF(); // Correct constructor usage
-    HindiFont();
-    console.log("font list", doc.getFontList()); //check all added font
+    const font = "../../../../../Fonts/HindiText.ttf"; // Path to your font file
+    const fontName = "HindiFont";
+    const hindifont = "../../../../../Fonts/hindiFont.txt";
+    // Fetch the Base64 encoded font data from the file
+    fetch(hindifont)
+      .then((response) => response.text())
+      .then((fontBytes) => {
+        // Use fontBytes with jsPDF
+        const font = "path/to/hindiFont.ttf"; // Path to your font file
+        const fontName = "HindiFont";
 
-    doc.setFont(HindiFont, "normal");
+        doc.addFileToVFS(font, fontBytes); // Embed font using Base64 encoded data
+        doc.addFont(fontName, "HindiFont", "normal");
+        doc.setFont(fontName);
+      })
+      .catch((error) => console.error("Error fetching font data:", error));
+
+    // Read the Base64 encoded font data from the file
+    // const fontBytes = fs.readFileSync("hindiFont.txt", "utf-8");
+
+    // doc.addFileToVFS(font, fontBytes); // fontBytes is the Base64 encoded font data
+    // doc.addFont(fontName, "HindiFont", "normal");
+    // doc.setFont(fontName);
     console.log("font list", doc.getFontList());
     const title = "Quiz Results";
     const fontSize = 12;
@@ -239,25 +191,9 @@ function App() {
       fontSize,
       y + 5
     );
-    // doc.text(`Correct Answers:-  ${correctAnswers}`, fontSize, y + 10);
-    // doc.text(
-    //   `Incorrect Answers:-  ${questions.length - correctAnswers}`,
-    //   fontSize,
-    //   y + 15
-    // );
-    y += 8;
-    // resultSubmission();
-    // Add user information (optional)
-    // ... code to add user name, date, etc. (e.g., using prompt or form data)
 
-    // Add question and answer details
-    //let y = 1; // Starting position for question and answer entries
-    // for (const answer of userAnswers) {
-    //   doc.text(`${answer.question}:`, fontSize, y);
-    //   doc.text(`${answer.question}:`, fontSize, y);
-    //   doc.text(`${answer.answer}`, fontSize + 2, y);
-    //   y += 10; // Adjust spacing between entries
-    // }
+    y += 8;
+
     for (let i = 0; i < userAnswers.length; i++) {
       const answer = userAnswers[i];
       const question = questions[i]; // Get the original question object
@@ -280,14 +216,11 @@ function App() {
         ); // Bold chosen option
 
         if (isChosen) {
-          // doc.text(`  Correct Options:- ${answer.answer + 1}`, fontSize, y + 12);
-          // if (answer.choosen == null) answer.choosen = -1;
-          // console.log(answer.choosen);
           doc.text(
             ` Choosen Options:- ${answer.choosen + 1} `,
             fontSize,
             y + 12
-          ); // Add "(Chosen)" for selected option
+          );
         }
         y += 5; // Adjust spacing
       }
@@ -296,74 +229,6 @@ function App() {
       y += 13; // Add spacing between questions
     }
 
-    // Add a signature line (optional)
-    // const signatureLineY = y + 10;
-    // doc.text("_________________________", fontSize, signatureLineY);
-    // doc.text(
-    //   "Signature (Optional)",
-    //   fontSize - 12,
-    //   signatureLineY - 15,
-    //   "center"
-    // );
-
-    // const pdfData = doc.output("blob");
-    // const pdfData = doc.output("datauristring");
-    // console.log(pdfData);
-    // const base64Data = pdfData.split(",")[1]; // Assuming the data URI format is "data:application/pdf;base64,..."
-
-    // const body = JSON.stringify({ pdfData: base64Data });
-
-    // try {
-    //   const response = await fetch("http://localhost:8000/driveupload", {
-    //     method: "POST",
-    //     "Content-Type": "application/json",
-    //     body,
-    //   });
-
-    //   if (response.ok) {
-    //     const data = await response.json();
-    //     if (data.success) {
-    //       const accessLink = data.accessLink;
-    //       console.log("PDF uploaded successfully! Access link:", accessLink);
-    //       // You can display the access link to the user or use it for other purposes
-    //     } else {
-    //       console.error("Error uploading PDF to server:", data.message); // Handle specific errors from backend
-    //     }
-    //   } else {
-    //     console.error("Error sending PDF request:", response.statusText); // Handle network errors
-    //   }
-    // } catch (err) {
-    //   console.error("Error sending PDF request:", err);
-    //   // Handle other errors
-    // }
-    //////
-    // const pdfData = doc.output("datauristring");
-    // console.log(pdfData);
-
-    // async function uploadPDF() {
-    //   try {
-    //     const response = await fetch("http://localhost:8000/driveupload", {
-    //       method: "POST", // Ensure it's a POST request
-    //       headers: {
-    //         "Content-Type": "application/json", // Set Content-Type header
-    //       },
-    //       body: JSON.stringify({ pdfData }), // Stringify the object
-    //     });
-
-    //     if (response.ok) {
-    //       const data = await response.json();
-    //       console.log(data);
-    //       // ... handle response
-    //     } else {
-    //       console.error("Error sending PDF request:", response.statusText);
-    //     }
-    //   } catch (err) {
-    //     console.error("Error sending PDF request:", err);
-    //   }
-    // }
-
-    // uploadPDF();
-    // // console.log(doc);
     // Save the PDF
     doc.save("quiz_results.pdf"); // Replace 'quiz_results.pdf' with your desired filename
   };
@@ -397,7 +262,8 @@ function App() {
             Home
           </button>
           {isFinished && (
-            <button onClick={saveResultsToPDF}>Download Results PDF</button>
+            <></>
+            // <button onClick={saveResultsToPDF}>Download Results PDF</button>
           )}
         </div>
       ) : (
